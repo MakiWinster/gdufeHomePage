@@ -18,6 +18,16 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+// Markdown渲染功能
+function loadMarkdownFile() {
+    fetch('example.md')
+        .then(response => response.text())
+        .then(markdown => {
+            const html = marked(markdown);
+            document.getElementById('markdown-content').innerHTML = html;
+        });
+}
+
 // 默认显示第一个标签页的内容
 document.getElementById("Tab1").style.display = "block";
 

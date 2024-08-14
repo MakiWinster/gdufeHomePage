@@ -1,0 +1,125 @@
+<head>
+    <link rel="stylesheet" href="../../css/fonts.css">
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'pixel', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        /* 容器布局 */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* 每个链接项的样式 */
+        .link-item {
+            position: relative;
+            width: 30%;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        /* 图片样式 */
+        .link-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        /* 覆盖图层样式 */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../contents/image/white.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            opacity: 0.2;
+        }
+
+        /* 链接文字样式 */
+        .link-item a {
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* 悬停效果 */
+        .link-item:hover .link-image {
+            transform: scale(1.5);
+        }
+
+        .link-item:hover .overlay {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="link-item">
+            <img src="../../contents/image/mooc.png" alt="Link 1" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://rain.gdufemooc.cn/web?next=/v2/web/index&type=3" target="_parent">广财慕课</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/chaoxing.png" alt="Link 2" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://gdcj.fanya.chaoxing.com/portal" target="_parent">超星尔雅/超星课堂</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/third-image.png" alt="Link 3" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第三链接</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/fourth-image.png" alt="Link 4" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第四链接</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/fifth-image.png" alt="Link 5" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第五链接</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/sixth-image.png" alt="Link 6" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第六链接</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/seventh-image.png" alt="Link 7" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第七链接</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/eighth-image.png" alt="Link 8" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第八链接</a>
+        </div>
+        <div class="link-item">
+            <img src="../../contents/image/ninth-image.png" alt="Link 9" class="link-image">
+            <div class="overlay"></div>
+            <a href="https://example.com" target="_parent">第九链接</a>
+        </div>
+    </div>
+</body>
