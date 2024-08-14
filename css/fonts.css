@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('../contents/fonts/fusion-pixel-12px-monospaced-zh_hans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'keaiyuan';
+    src: url('../contents/fonts/AaRiFuYiRiKeAiYuan-2.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'pinyin';
+    src:url('../contents/fonts/RiChuRiLuoWoZaiXiangNi-2.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'youyaEng';
+    src: url('../contents/fonts/GARABD.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'title';
+    src: url('../contents/fonts/YuGothB.ttc') format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC Title';
+    src: url('../contents/fonts/NotoSerifSC-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'zhengwen';
+    src: url('../contents/fonts/hpsimplifiedhans-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'zhengwenSerif';
+    src: url('../contents/fonts/taileb.ttf') format('truetype');
+}

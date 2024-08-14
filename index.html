@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>广财启动页</title>
+    <link rel="icon" href="contents/image/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <script src="javascript/javascript.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="contents/image/icon.png" alt="Logo" class="logo">
+            <h1 style="font-family: 'Noto Serif SC Title';">广财启动页</h1>
+        </div>
+        <div class="search-container">
+            <div class="search-box-wrapper">
+                <img src="https://img.icons8.com/?size=80&id=AHbX8dLfDH35&format=png" alt="Bing" class="search-icon"
+                    style="width: 40px;height: 40px;">
+                <input type="text" placeholder="搜索必应" class="search-box" id="bing-search">
+                <button class="search-button" onclick="searchBing()">
+                    <img src="https://img.icons8.com/?size=50&id=132&format=png" alt="Search">
+                </button>
+            </div>
+            <div class="search-box-wrapper">
+                <img src="https://img2.baidu.com/it/u=517720811,1019577022&fm=253&app=138&size=w931&n=0&f=PNG&fmt=auto?sec=1723741200&t=202819d77a89d767d0ad0b9b316b6c0a"
+                    alt="Baidu" class="search-icon">
+                <input type="text" placeholder="搜索百度" class="search-box" id="baidu-search">
+                <button class="search-button" onclick="searchBaidu()">
+                    <img src="https://img.icons8.com/?size=50&id=132&format=png" alt="Search">
+                </button>
+            </div>
+        </div>
+        <div class="tab-container">
+            <div class="tab-header">
+                <button class="tab-link active" onclick="openTab(event, 'Tab1')">学校常用网站</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab2')">校园地图</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab3')">公告内容</button>
+            </div>
+            <div class="tab-content" id="Tab1">
+                <!-- 推荐内容 -->
+                <div class="link-item">
+                    <img src="contents/image/link1.png" alt="Link 1">
+                    <a href="#">推荐网页1</a>
+                </div>
+                <div class="link-item">
+                    <img src="contents/image/link2.png" alt="Link 2">
+                    <a href="#">推荐网页2</a>
+                </div>
+            </div>
+            <div class="tab-content" id="Tab2" style="display: none;">
+                <img src="contents/image/三水校区地图.png" alt="Map">
+                <p>这里显示地图查看功能。</p>
+            </div>
+            <div class="tab-content" id="Tab3" style="display: none;">
+                <!-- 公告内容 -->
+                <p>这里显示公告内容。</p>
+            </div>
+        </div>
+</body>
+
+</html>
