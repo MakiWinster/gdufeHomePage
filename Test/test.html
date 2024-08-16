@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>带有标签页的网页</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="javascript.js"></script>
+    <title>Page with Loading Animation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="tab-container">
-        <div class="tab-header">
-            <button class="tab-link active" onclick="openTab(event, 'Tab1')">标签页1</button>
-            <button class="tab-link" onclick="openTab(event, 'Tab2')">标签页2</button>
-            <button class="tab-link" onclick="openTab(event, 'Tab3')">标签页3</button>
-        </div>
-        <div class="tab-content" id="Tab1">
-            <h2>标签页1的内容</h2>
-            <p>这里是标签页1的内容。</p>
-        </div>
-        <div class="tab-content" id="Tab2" style="display:none">
-            <h2>标签页2的内容</h2>
-            <p>这里是标签页2的内容。</p>
-        </div>
-        <div class="tab-content" id="Tab3" style="display:none">
-            <h2>标签页3的内容</h2>
-            <p>这里是标签页3的内容。</p>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner">
+        <div class="spinner">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
+
+    <!-- Actual Content -->
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is the actual content of the page.</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -7,7 +7,9 @@
     <link rel="icon" href="contents/image/icon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/material/nav.css">
     <script src="javascript/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -34,12 +36,36 @@
                 </button>
             </div>
         </div>
+        <ul id="nav">
+            <li class="slide1"></li>
+            <li class="slide2"></li>
+            <li><a href="#" class="tab-link active" onclick="openTab(event, 'Tab1')">常用</a></li>
+            <li><a href="#" class="tab-link" onclick="openTab(event, 'Tab2')">校园地图</a></li>
+            <li><a href="#" class="tab-link" onclick="openTab(event, 'Tab3')">公告</a></li>
+            <li><a href="#">新生</a></li>
+            <li><a href="#">Epsilon</a></li>
+        </ul>
+        <script>
+$("#nav a").on("click", function () {
+    var position = $(this).parent().position();
+    var width = $(this).parent().width();
+    $("#nav .slide1").css({ opacity: 1, left: +position.left, width: width });
+});
+$("#nav a").on("mouseover", function () {
+    var position = $(this).parent().position();
+    var width = $(this).parent().width();
+    $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width }).addClass("squeeze");
+});
+$("#nav a").on("mouseout", function () {
+    $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
+});
+var currentWidth = $("#nav li:nth-of-type(3) a").parent("li").width();
+var current = $("li:nth-of-type(3) a").position();
+$("#nav .slide1").css({ left: +current.left, width: currentWidth });
+
+
+        </script>
         <div class="tab-container">
-            <div class="tab-header">
-                <button class="tab-link active" onclick="openTab(event, 'Tab1')">学校常用网站</button>
-                <button class="tab-link" onclick="openTab(event, 'Tab2')">校园地图</button>
-                <button class="tab-link" onclick="openTab(event, 'Tab3')">公告内容</button>
-            </div>
             <div class="tab-content" id="Tab1">
                 <!-- 推荐内容 -->
                 <iframe src="subpages/_resource/links.html" frameborder="0" width="100%" height="100%"

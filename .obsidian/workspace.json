@@ -11,12 +11,8 @@
             "id": "5be24f3fc3cde517",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "subpages/Article/校园VPN.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "subpages/Article/校园VPN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "subpages/Article/校园VPN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "subpages/Article/校园VPN.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,7 +138,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5be24f3fc3cde517",
+  "active": "5985230ac7e17cad",
   "lastOpenFiles": [
     "contents/image/white.png",
     "css/link.css",

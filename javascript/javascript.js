@@ -59,3 +59,4 @@ document.getElementById('baidu-search').addEventListener('keydown', function(e) 
         searchBaidu();
     }
 });
+
