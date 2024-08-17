@@ -17,32 +17,91 @@
 
 
 .container {
-    margin: 3% auto; /* 上下边距为 3%，左右边距自动以实现居中 */
+    margin: 3% auto;
+    /* 上下边距为 3%，左右边距自动以实现居中 */
     background-color: #fff;
     border-radius: 22px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
-    width: 90%; /* 设置适当的宽度 */
-    max-width: 1200px; /* 可选，设置最大宽度 */
+    width: 90%;
+    /* 设置适当的宽度 */
+    max-width: 1200px;
+    /* 可选，设置最大宽度 */
     padding: 20px;
 }
 
+/* 响应式设计: 针对宽度小于768px的设备（如手机） */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        /* 宽度稍微增加，确保在小屏幕上容器不会显得太窄 */
+        padding: 15px;
+        /* 内边距减少，以适应小屏幕 */
+    }
+}
+
+/* 响应式设计: 针对宽度小于480px的设备（如较小的手机） */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        /* 在极小屏幕上使用全宽度 */
+        padding: 10px;
+        /* 内边距进一步减少 */
+    }
+}
+
+
+/* #region-收款码 */
 .container2 {
+    width: 50%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* 禁止换行，确保图片并列 */
+    justify-content: space-between;
+    /* 在图片之间留出间隙 */
+}
+
+.container2 .item {
+    flex: 1 1 auto;
+    /* 允许图片自动调整大小 */
+    margin-right: 10px;
+    /* 在每个图片右边添加间隙 */
+}
+
+.container2 .item:last-child {
+    margin-right: 0;
+    /* 取消最后一个图片右边的间隙 */
 }
 
 .container2 img {
-    max-width: 100%; /* 限制图片最大宽度为容器宽度 */
-    height: auto;   /* 保持图片的原始纵横比 */
-    display: block; /* 去除图片底部的间隙 */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: block;
+    height: auto;
+    transition: box-shadow 0.3s ease;
+    /* 添加阴影的过渡效果 */
 }
 
+.container2 img:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.3);
+    /* 悬停时加深阴影 */
+    cursor: pointer;
+    /* 鼠标变为指针 */
+}
 
+/* #endregion */
+
+/* 图片 */
 .item {
-    flex: 1 1 45%; /* 允许元素增长和缩小，初始宽度为45% */
-    margin: 10px;
-    min-width: 300px; /* 设置最小宽度，防止内容过小 */
+    flex: 1 1 calc(50% - 15px);
+    /* 计算每个项的宽度，并考虑间隙 */
+    min-width: 300px;
+    /* 设置最小宽度，防止内容过小 */
+    margin-bottom: 30px;
+    /* 在垂直方向上添加间隙 */
 }
+
 
 
 .header {
@@ -111,6 +170,7 @@
     width: 20px;
     height: 20px;
 }
+
 /* #endregion */
 
 .link-item {
@@ -135,20 +195,25 @@
 .map-container {
     width: 50%;
     max-width: 100%;
-    margin: 0 auto; /* 居中对齐容器 */
+    margin: 0 auto;
+    /* 居中对齐容器 */
     overflow: hidden;
     position: relative;
     cursor: grab;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 添加过渡效果 */
 }
 
 .map-container:hover {
-    transform: scale(1.3); /* 略微放大容器 */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+    transform: scale(1.3);
+    /* 略微放大容器 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* 添加阴影效果 */
 }
 
 .map-image {
-    width: 100%; /* 图片宽度为容器的100% */
+    width: 100%;
+    /* 图片宽度为容器的100% */
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -158,13 +223,40 @@
 
 
 .map-image.enlarged {
-    transform: scale(1.5); /* 放大1.5倍 */
+    transform: scale(1.5);
+    /* 放大1.5倍 */
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
     cursor: grab;
 }
 
 .map-image.dragging {
     cursor: grabbing;
+}
+
+/* #endregion */
+
+/* #region-新生栏目 */
+.collapsible-header {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible-header:hover {
+    background-color: #e0e0e0;
+}
+
+.collapsible-content {
+    padding: 10px;
+    background-color: #fafafa;
+    border-left: 4px solid #0078d7;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: none;
+    /* 默认隐藏内容 */
 }
 
 /* #endregion */

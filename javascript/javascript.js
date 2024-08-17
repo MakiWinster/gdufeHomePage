@@ -18,12 +18,18 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-// Markdown渲染功能
-function loadMarkdownFile() {
-    fetch('example.md')
-        .then(response => response.text())
-        .then(markdown => {
-            const html = marked(markdown);
-            document.getElementById('markdown-content').innerHTML = html;
+// "新生"里面的栏目
+document.addEventListener("DOMContentLoaded", function() {
+    var headers = document.querySelectorAll(".collapsible-header");
+
+    headers.forEach(function(header) {
+        header.addEventListener("click", function() {
+            var content = this.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
         });
-}
+    });
+});

@@ -16,9 +16,12 @@
     <div class="container">
         <div>
             <div class="header">
-                <a href="https://www.gdufe.edu.cn/main.htm" target="_blank" style="text-decoration: none; color: inherit;">
+                <a href="https://www.gdufe.edu.cn/main.htm" target="_blank"
+                    style="text-decoration: none; color: inherit;">
                     <img src="contents/image/icon.png" alt="Logo" class="logo" style="vertical-align: middle;">
-                    <h1 style="font-family: 'Noto Serif SC Title'; display: inline; vertical-align: middle; margin: 0;">广财启动页</h1>
+                    <h1
+                        style="font-family: 'Noto Serif SC'; display: inline; vertical-align: middle; margin: 0; font-weight: 800;">
+                        广财启动页</h1>
                 </a>
             </div>
             <div class="search-container">
@@ -130,6 +133,7 @@
                 <iframe src="subpages/_resource/links.html" frameborder="0"
                     style="width: 100%; height: 800px; overflow: hidden;" scrolling="no" title="链接页面"></iframe>
             </div>
+
             <div class="tab-content" id="Tab2" style="display: none;">
                 <p style="text-align: center;">/***鼠标左键点击放大，摁住右键可拖拽，再次左键点击还原***/</p>
                 <p style="text-align: center;">/***手机可长按保存在相册查看***/</p>
@@ -214,28 +218,89 @@
 
                 </script>
                 <p>高德地图：<a href="https://ditu.amap.com/place/B0FFFD3OZX">https://ditu.amap.com/place/B0FFFD3OZX</a></p>
-</div>
+            </div>
 
             <div class="tab-content" id="Tab3" style="display: none;">
                 <!-- 公告内容 -->
                 <p>这里显示公告内容。</p>
             </div>
+
             <div class="tab-content" id="Tab4" style="display: none;">
-                <p>✨✨第二课堂？</p>
-                <p>我需要打印，该去哪里？</p>
-                <p>要去校外玩，该怎么坐车？</p>
+                <div class="collapsible-section" style="font-family: 'zhengwen';">
+                    <h3 class="collapsible-header">常用要关注的公众号</h3>
+                    <div class="collapsible-content" style="display: none;"> <!-- 默认隐藏内容 -->
+                        <p>1. 广东财经大学：官方号，支持一下哈哈哈 </p>
+                        <p>2. 广东财经大学财务处：用于手机端交学费、学分费、住宿费等费用</p>
+                        <p>3. 广东财经大学校园卡：用于接收有关校园卡使用的通知，宿舍电费水费欠费通知等</p>
+                        <p>4. 广东财经大学校园网：接收断网通知🤣</p>
+                        <p>5. ⭐广财青年：第二课堂的入口（校园网 / VPN）</p>
+                        <p>6. ⭐广财慕课：接收相关学习任务</p>
+                        <p>7. 广财大心理咨询中心：建议都关注一下~</p>
+                    </div>
+                </div>
+                <div class="collapsible-section">
+                    <h3 class="collapsible-header">✨✨第二课堂？</>
+                        <div class="collapsible-content" style="display: none;">
+                            <p>第二课堂相关内容</p>
+                        </div>
+                </div>
+                <div class="collapsible-section">
+                    <h3 class="collapsible-header">我需要打印，该去哪里？</>
+                        <div class="collapsible-content" style="display: none;">
+                            <p>打印的相关信息</p>
+                        </div>
+                </div>
+                <div class="collapsible-section">
+                    <h3 class="collapsible-header">要去校外玩，该怎么坐车？</>
+                        <div class="collapsible-content" style="display: none;">
+                            <p>校外交通信息</p>
+                        </div>
+                </div>
             </div>
             <div class="tab-content" id="Tab5" style="display: none;">
                 <p>可以把建议发送到Makiiiiiiiho@gmail.com噢</p>
                 <h2 style="margin-top: 30px;">有帮到你？考虑Donate一下吗~🥰</h2>
                 <div class="container2">
                     <div class="item">
-                        <img src="contents/image/WeChatPay.png" style="padding: 30px; width: 80%;" alt="Wechatpay">
+                        <img src="contents/image/WeChatPay.png" alt="Wechatpay">
                     </div>
                     <div class="item">
-                        <img src="contents/image/AliPay.png" style="padding: 30px; width: 80%;" alt="AliPay">
+                        <img src="contents/image/AliPay.png" alt="AliPay">
                     </div>
+                    <!-- 点击打开图片 -->
+                    <script>
+
+                        document.querySelectorAll('.container2 img').forEach(img => {
+                            img.addEventListener('click', function () {
+                                const modal = document.createElement('div');
+                                modal.style.position = 'fixed';
+                                modal.style.top = '0';
+                                modal.style.left = '0';
+                                modal.style.width = '100%';
+                                modal.style.height = '100%';
+                                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                                modal.style.display = 'flex';
+                                modal.style.justifyContent = 'center';
+                                modal.style.alignItems = 'center';
+                                modal.style.zIndex = '1000';
+
+                                const largeImg = document.createElement('img');
+                                largeImg.src = this.src;
+                                largeImg.style.maxWidth = '90%';
+                                largeImg.style.maxHeight = '90%';
+                                largeImg.style.boxShadow = '0px 8px 16px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.3)';
+
+                                modal.appendChild(largeImg);
+                                document.body.appendChild(modal);
+
+                                modal.addEventListener('click', function () {
+                                    document.body.removeChild(modal);
+                                });
+                            });
+                        });
+                    </script>
                 </div>
+
             </div>
         </div>
 </body>

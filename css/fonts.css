@@ -1,17 +1,30 @@
+body{
+    font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+p {
+    margin: 5px 0px;    /* 上下端距为20px，左右端距为15px */
+    padding: 0px 0px;    /* 上下内边距为10px，左右内边距为5px */
+}
+
+/* #region-隐藏滚动条 */
+html, body {/* 对于 WebKit 浏览器，如 Chrome 和 Safari */
+    overflow: auto; /* 保留滚动功能 */
+    -ms-overflow-style: none; /* 适用于 Internet Explorer 和 Edge */
+    scrollbar-width: none; /* 适用于 Firefox */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none; /* 隐藏滚动条 */
+}
+/* #endregion */
+
 @font-face {
     font-family: 'pixel';
     src: url('../contents/fonts/fusion-pixel-12px-monospaced-zh_hans.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'keaiyuan';
-    src: url('../contents/fonts/AaRiFuYiRiKeAiYuan-2.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'pinyin';
-    src:url('../contents/fonts/RiChuRiLuoWoZaiXiangNi-2.ttf') format('truetype');
-}
 
 @font-face {
     font-family: 'youyaEng';
@@ -23,10 +36,6 @@
     src: url('../contents/fonts/XiangJiaoDaJiangJunLingGanTi-2.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Noto Serif SC Title';
-    src: url('../contents/fonts/NotoSerifSC-Black.ttf') format('truetype');
-}
 
 @font-face {
     font-family: 'zhengwen';
