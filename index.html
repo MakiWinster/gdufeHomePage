@@ -77,11 +77,11 @@
             <ul id="nav">
                 <li class="slide1"></li>
                 <li class="slide2"></li>
-                <li><a href="#" class="tab-link active" onclick="openTab(event, 'Tab1')">常用</a></li>
-                <li><a href="#" class="tab-link" onclick="openTab(event, 'Tab2')">校园地图</a></li>
-                <li><a href="#" class="tab-link" onclick="openTab(event, 'Tab3')">公告</a></li>
-                <li><a href="#" class="tab-link" onclick="openTab(event, 'Tab4')">新生</a></li>
-                <li><a href="#" class="tab-link" onclick="openTab(event, 'Tab5')">建议/联系</a></li>
+                <li><a href="#" class="tab-link active" onclick="openTab(event, '常用')">常用</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, '校园地图')">校园地图</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, '公告')">公告</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, '新生')">新生</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, '建议')">建议/联系</a></li>
             </ul>
             <script>
                 function openTab(evt, tabId) {
@@ -98,10 +98,10 @@
                     evt.currentTarget.className += " active";
                 }
 
-                // 默认打开Tab1
+                // 默认打开常用
                 document.addEventListener("DOMContentLoaded", function () {
                     // Call openTab with default tab
-                    var defaultTab = 'Tab1';
+                    var defaultTab = '常用';
                     var defaultTabLink = document.querySelector(`a[onclick*="${defaultTab}"]`);
                     if (defaultTabLink) {
                         openTab({ currentTarget: defaultTabLink }, defaultTab);
@@ -128,13 +128,13 @@
             </script>
         </div>
         <div class="tab-container">
-            <div class="tab-content" id="Tab1">
+            <div class="tab-content" id="常用">
                 <!-- 推荐内容 -->
                 <iframe src="subpages/_resource/links.html" frameborder="0"
                     style="width: 100%; height: 800px; overflow: hidden;" scrolling="no" title="链接页面"></iframe>
             </div>
 
-            <div class="tab-content" id="Tab2" style="display: none;">
+            <div class="tab-content" id="校园地图" style="display: none;">
                 <p style="text-align: center;">/***鼠标左键点击放大，摁住右键可拖拽，再次左键点击还原***/</p>
                 <p style="text-align: center;">/***手机可长按保存在相册查看***/</p>
                 <h2 style="font-family: 'title'; margin-top: 30px; font-size: large; text-align: center;">佛山校区地图</h2>
@@ -220,44 +220,58 @@
                 <p>高德地图：<a href="https://ditu.amap.com/place/B0FFFD3OZX">https://ditu.amap.com/place/B0FFFD3OZX</a></p>
             </div>
 
-            <div class="tab-content" id="Tab3" style="display: none;">
-                <!-- 公告内容 -->
-                <p>这里显示公告内容。</p>
+            <div class="tab-content" id="公告" style="display: none;">
+                <iframe src="http://jwxt.gdufe.edu.cn/jsxsd/" title="gdufe" frameborder="0"
+                style="width: 100%; height: 800px; overflow: hidden;" scrolling="no">
             </div>
 
-            <div class="tab-content" id="Tab4" style="display: none;">
-                <div class="collapsible-section" style="font-family: 'zhengwen';">
-                    <h3 class="collapsible-header">常用要关注的公众号</h3>
-                    <div class="collapsible-content" style="display: none;"> <!-- 默认隐藏内容 -->
-                        <p>1. 广东财经大学：官方号，支持一下哈哈哈 </p>
-                        <p>2. 广东财经大学财务处：用于手机端交学费、学分费、住宿费等费用</p>
-                        <p>3. 广东财经大学校园卡：用于接收有关校园卡使用的通知，宿舍电费水费欠费通知等</p>
-                        <p>4. 广东财经大学校园网：接收断网通知🤣</p>
-                        <p>5. ⭐广财青年：第二课堂的入口（校园网 / VPN）</p>
-                        <p>6. ⭐广财慕课：接收相关学习任务</p>
-                        <p>7. 广财大心理咨询中心：建议都关注一下~</p>
+            <div class="tab-content" id="新生" style="display: none;">
+                <div style="font-family: 'zhengwen';">
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">常用要关注的公众号</h3>
+                        <div class="collapsible-content" style="display: none;"> <!-- 默认隐藏内容 -->
+                            <p>1. 广东财经大学：官方号，支持一下哈哈哈 </p>
+                            <p>2. 广东财经大学财务处：用于手机端交学费、学分费、住宿费等费用</p>
+                            <p>3. 广东财经大学校园卡：用于接收有关校园卡使用的通知，宿舍电费水费欠费通知等</p>
+                            <p>4. 广东财经大学校园网：接收断网通知🤣</p>
+                            <p>5. ⭐广财青年：第二课堂的入口（校园网 / VPN）</p>
+                            <p>6. ⭐广财慕课：接收相关学习任务</p>
+                            <p>7. 广财大心理咨询中心：建议都关注一下~</p>
+                        </div>
                     </div>
-                </div>
-                <div class="collapsible-section">
-                    <h3 class="collapsible-header">✨✨第二课堂？</>
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">小程序</h3>
+                        <div class="collapsible-content" style="display: none;">
+                            <p>趣智校园：洗澡用</p>
+                            <p>财大e卡：广财人的电子身份证，出入校园、充值校园卡、热水费电费等</p>
+                            <p>车来了精准实时公交：踩点出门神器</p>
+                            <p>广佛通X佛山乘车码：坐公交扫码用</p>
+                            <p>端州区楷婕小食店 | 小食店：第三饭堂沙县小吃小程序，可预订且95折</p>
+                            <p>红昇超市 | 南沙：二饭小卖部外卖</p>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">✨✨第二课堂？</h3>
                         <div class="collapsible-content" style="display: none;">
                             <p>第二课堂相关内容</p>
                         </div>
-                </div>
-                <div class="collapsible-section">
-                    <h3 class="collapsible-header">我需要打印，该去哪里？</>
+                    </div>
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">我需要打印，该去哪里？</h3>
                         <div class="collapsible-content" style="display: none;">
                             <p>打印的相关信息</p>
                         </div>
-                </div>
-                <div class="collapsible-section">
-                    <h3 class="collapsible-header">要去校外玩，该怎么坐车？</>
+                    </div>
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">要去校外玩，该怎么坐车？</h3>
                         <div class="collapsible-content" style="display: none;">
                             <p>校外交通信息</p>
                         </div>
+                    </div>
                 </div>
             </div>
-            <div class="tab-content" id="Tab5" style="display: none;">
+            <div class="tab-content" id="建议" style="display: none;">
                 <p>可以把建议发送到Makiiiiiiiho@gmail.com噢</p>
                 <h2 style="margin-top: 30px;">有帮到你？考虑Donate一下吗~🥰</h2>
                 <div class="container2">
@@ -303,6 +317,7 @@
 
             </div>
         </div>
+    </div>
 </body>
 
 </html>

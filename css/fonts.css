@@ -3,9 +3,11 @@ body{
 }
 
 p {
-    margin: 5px 0px;    /* 上下端距为20px，左右端距为15px */
-    padding: 0px 0px;    /* 上下内边距为10px，左右内边距为5px */
+    margin: 10px 0; /* 段距：上下端距为20px，左右端距为0 */
+    padding: 0;     /* 内边距：上下和左右均为0 */
+    line-height: 1.4em; /* 行距，略小于段距 */
 }
+
 
 /* #region-隐藏滚动条 */
 html, body {/* 对于 WebKit 浏览器，如 Chrome 和 Safari */

@@ -41,55 +41,110 @@
             /* 内容靠上对齐 */
         }
 
-/* 链接文字样式 */
-.link-item a {
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-}
+        /* 链接文字样式 */
+        .link-item a {
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
 
-/* 链接的悬停效果 */
-.link-item a {
-    transition: transform 0.5s ease-in-out;
-}
+        /* #region-文字浮动效果 */
+        /* 链接的悬停效果 */
+        .link-item a {
+            transition: transform 0.5s ease-in-out;
+        }
 
-/* 悬停时的浮动抖动和放大效果 */
-.link-item a:hover {
-    transform: scale(1.1) translate(1px, 1px);
-}
+        /* 悬停时的浮动抖动和放大效果 */
+        .link-item a:hover {
+            transform: scale(1.1) translate(1px, 1px);
+        }
 
-/* 定义浮动抖动和放大动画 */
-@keyframes float {
-    0%, 100% {
-        transform: scale(1) translate(0, 0);
-    }
-    25% {
-        transform: scale(1.05) translate(2px, -1px);
-    }
-    50% {
-        transform: scale(1.1) translate(-1px, 1px);
-    }
-    75% {
-        transform: scale(1.05) translate(1px, 2px);
-    }
-}
+        /* 定义浮动抖动和放大动画 */
+        @keyframes float {
 
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
 
+            25% {
+                transform: scale(1.05) translate(2px, -1px);
+            }
+
+            50% {
+                transform: scale(1.1) translate(-1px, 1px);
+            }
+
+            75% {
+                transform: scale(1.05) translate(1px, 2px);
+            }
+        }
+
+        /* #endregion */
+
+        /* #region-鼠标悬停时显示图片的样式 */
+
+        /* 添加图片的样式 */
+        /* 隐藏链接文字的边框 */
+        .link-item a {
+            border: none;
+            outline: none;
+        }
+
+        /* 添加图片的样式 */
+        .tooltip {
+            position: fixed;
+            display: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            border-radius: 0;
+            z-index: 1000;
+            max-width: 400px;
+            /* 调整图片大小 */
+            max-height: 400px;
+            /* 调整图片大小 */
+        }
+
+        /* 设置图片 */
+        .tooltip img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 在鼠标悬停时显示图片 */
+        .link-item:hover .tooltip {
+            display: block;
+        }
+
+        /* 媒体查询：在手机端禁用动画 */
+        @media (max-width: 768px) {
+            .link-item a {
+                transition: none;
+            }
+        }
+
+        /* #endregion */
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="link-item">
+        <div class="link-item" data-image="../../contents/image/mooc.png">
             <a href="https://rain.gdufemooc.cn/web?next=/v2/web/index&type=3" target="_parent">广财慕课</a>
+            <div class="tooltip"></div>
         </div>
-        <div class="link-item">
+
+        <div class="link-item" data-image="../../contents/image/chaoxing.png">
             <a href="https://gdcj.fanya.chaoxing.com/portal" target="_parent">超星尔雅/课堂</a>
+            <div class="tooltip"></div>
         </div>
-        <div class="link-item">
+        <div class="link-item" data-image="../../contents/image/ronghemenhu.png">
             <a href="http://imy.gdufe.edu.cn/#/index3" target="_parent">融合门户</a>
+            <div class="tooltip"></div>
         </div>
         <div class="link-item">
             <a href="https://www.chsi.com.cn/index.jsp" target="_parent">学信网</a>
@@ -109,5 +164,46 @@
         <div class="link-item">
             <a href="https://example.com" target="_parent">第九链接</a>
         </div>
+        <!-- 鼠标旁边显示图片的动画 -->
+        <script>
+            document.querySelectorAll('.link-item').forEach(item => {
+                const tooltip = item.querySelector('.tooltip'); // 从每个 link-item 中找到对应的 tooltip
+                const imgSrc = item.getAttribute('data-image');
+                tooltip.innerHTML = `<img src="${imgSrc}" alt="Tooltip Image">`;
+
+                item.addEventListener('mousemove', (e) => {
+                    const { clientX: x, clientY: y } = e;
+                    const tooltipWidth = tooltip.offsetWidth;
+                    const tooltipHeight = tooltip.offsetHeight;
+                    const screenWidth = window.innerWidth;
+                    const screenHeight = window.innerHeight;
+
+                    let left = x + 10; // 10px 偏移量
+                    let top = y + 10; // 10px 偏移量
+
+                    // 确保图片不超出右边界
+                    if (left + tooltipWidth > screenWidth) {
+                        left = x - tooltipWidth - 10;
+                    }
+
+                    // 确保图片不超出底部边界
+                    if (top + tooltipHeight > screenHeight) {
+                        top = y - tooltipHeight - 10;
+                    }
+
+                    tooltip.style.left = `${left}px`;
+                    tooltip.style.top = `${top}px`;
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+
+                item.addEventListener('mouseenter', () => {
+                    tooltip.style.display = 'block';
+                });
+            });
+
+        </script>
     </div>
 </body>
