@@ -16,7 +16,7 @@
 #nav {
     position: relative;
     border: none;
-    border-radius: 10em;
+    border-radius: 1em;
     display: flex;
     list-style: none;
     background: #f5f5f5;
@@ -27,7 +27,7 @@
 
 #nav li a {
     position: relative;
-    padding: 18px 15px;
+    padding: 12px 15px;
     font: 500 24px 'cuteTitle';
     border: none;
     outline: none;
@@ -41,7 +41,7 @@
 .slide2 {
     position: absolute;
     display: inline-block;
-    height: 60px;
+    height: 45px;
     border-radius: 1.5em;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
 }

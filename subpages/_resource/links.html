@@ -3,52 +3,80 @@
     <style>
         /* 全局样式 */
         body {
-    font-family: 'pixel', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* 修改为 flex-start 使内容靠上对齐 */
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
-    height: 100vh; /* 让 body 高度占满整个视口 */
-}
+            font-family: 'pixel', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* 修改为 flex-start 使内容靠上对齐 */
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            height: 100vh;
+            /* 让 body 高度占满整个视口 */
+        }
 
         /* 容器布局 */
         .container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 两列布局 */
-            gap: 20px; /* 网格间距 */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* 动态列数，最小宽度200px，最大宽度1fr */
+            gap: 20px;
+            /* 网格间距 */
             width: 90%;
             max-width: 1200px;
         }
 
         /* 每个链接项的样式 */
         .link-item {
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* 内容靠上对齐 */
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* 内容靠上对齐 */
+        }
+
+/* 链接文字样式 */
+.link-item a {
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
 }
 
-        /* 链接文字样式 */
-        .link-item a {
-            color: black;
-            font-size: 18px;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-        }
+/* 链接的悬停效果 */
+.link-item a {
+    transition: transform 0.5s ease-in-out;
+}
 
-        /* 悬停效果 */
-        .link-item:hover {
-            background-color: #f9f9f9; /* 悬停时背景颜色变化 */
-        }
+/* 悬停时的浮动抖动和放大效果 */
+.link-item a:hover {
+    transform: scale(1.1) translate(1px, 1px);
+}
+
+/* 定义浮动抖动和放大动画 */
+@keyframes float {
+    0%, 100% {
+        transform: scale(1) translate(0, 0);
+    }
+    25% {
+        transform: scale(1.05) translate(2px, -1px);
+    }
+    50% {
+        transform: scale(1.1) translate(-1px, 1px);
+    }
+    75% {
+        transform: scale(1.05) translate(1px, 2px);
+    }
+}
+
+
     </style>
 </head>
 
@@ -58,16 +86,16 @@
             <a href="https://rain.gdufemooc.cn/web?next=/v2/web/index&type=3" target="_parent">广财慕课</a>
         </div>
         <div class="link-item">
-            <a href="https://gdcj.fanya.chaoxing.com/portal" target="_parent">超星尔雅/超星课堂</a>
+            <a href="https://gdcj.fanya.chaoxing.com/portal" target="_parent">超星尔雅/课堂</a>
         </div>
         <div class="link-item">
-            <a href="https://example.com" target="_parent">第三链接</a>
+            <a href="http://imy.gdufe.edu.cn/#/index3" target="_parent">融合门户</a>
         </div>
         <div class="link-item">
-            <a href="https://example.com" target="_parent">第四链接</a>
+            <a href="https://www.chsi.com.cn/index.jsp" target="_parent">学信网</a>
         </div>
         <div class="link-item">
-            <a href="https://example.com" target="_parent">第五链接</a>
+            <a href="http://jwxt.gdufe.edu.cn/jsxsd/" target="_blank">教学一体化平台</a>
         </div>
         <div class="link-item">
             <a href="https://example.com" target="_parent">第六链接</a>
