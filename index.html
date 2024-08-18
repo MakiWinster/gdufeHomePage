@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广财启动页</title>
     <link rel="icon" href="contents/image/icon.png">
     <link rel="stylesheet" href="css/style.css">
@@ -16,12 +17,9 @@
     <div class="container">
         <div>
             <div class="header">
-                <a href="https://www.gdufe.edu.cn/main.htm" target="_blank"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="contents/image/icon.png" alt="Logo" class="logo" style="vertical-align: middle;">
-                    <h1
-                        style="font-family: 'Noto Serif SC'; display: inline; vertical-align: middle; margin: 0; font-weight: 800;">
-                        广财启动页</h1>
+                <a href="https://www.gdufe.edu.cn/main.htm" target="_blank" class="header-link">
+                    <img src="contents/image/icon.png" alt="Logo" class="logo">
+                    <h1 class="site-title">广财启动页</h1>
                 </a>
             </div>
             <div class="search-container">
@@ -137,91 +135,105 @@
             <div class="tab-content" id="校园地图" style="display: none;">
                 <p style="text-align: center;">/***鼠标左键点击放大，摁住右键可拖拽，再次左键点击还原***/</p>
                 <p style="text-align: center;">/***手机可长按保存在相册查看***/</p>
-                <h2 style="font-family: 'title'; margin-top: 30px; font-size: large; text-align: center;">佛山校区地图</h2>
-                <div class="map-container">
-                    <img src="contents/image/三水校区地图.png" alt="Map" class="map-image">
+
+                <div class="map-wrapper">
+                    <div class="map-container">
+                        <h1>佛山校区地图</h1>
+                        <img src="contents/image/sanshui.jpg" alt="Map" class="map-image">
+                    </div>
+                    <div class="map-container">
+                        <h1>广州校区地图</h1>
+                        <img src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image">
+                    </div>
                 </div>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        const mapImage = document.querySelector('.map-image');
-                        let isEnlarged = false;
-                        let isDragging = false;
-                        let startX = 0, startY = 0;
-                        let translateX = 0, translateY = 0;
-                        let scaleFactor = 1.5;
+                        const mapImages = document.querySelectorAll('.map-image');
+                        mapImages.forEach(mapImage => {
+                            let isEnlarged = false;
+                            let isDragging = false;
+                            let startX = 0, startY = 0;
+                            let translateX = 0, translateY = 0;
+                            let scaleFactor = 2.5;
 
-                        mapImage.addEventListener('click', function (event) {
-                            if (event.button === 0) { // 左键点击
-                                if (!isEnlarged) {
-                                    const rect = mapImage.getBoundingClientRect();
-                                    const offsetX = event.clientX - rect.left;
-                                    const offsetY = event.clientY - rect.top;
+                            mapImage.addEventListener('click', function (event) {
+                                if (event.button === 0) { // 左键点击
+                                    if (!isEnlarged) {
+                                        const rect = mapImage.getBoundingClientRect();
+                                        const offsetX = event.clientX - rect.left;
+                                        const offsetY = event.clientY - rect.top;
 
-                                    const originX = (offsetX / mapImage.clientWidth) * 100;
-                                    const originY = (offsetY / mapImage.clientHeight) * 100;
+                                        const originX = (offsetX / mapImage.clientWidth) * 100;
+                                        const originY = (offsetY / mapImage.clientHeight) * 100;
 
-                                    mapImage.style.transformOrigin = `${originX}% ${originY}%`;
-                                    mapImage.classList.add('enlarged');
-                                    isEnlarged = true;
-                                } else {
-                                    resetImage(); // 还原到初始状态
+                                        mapImage.style.transformOrigin = `${originX}% ${originY}%`;
+                                        mapImage.classList.add('enlarged');
+                                        isEnlarged = true;
+                                    } else {
+                                        resetImage(); // 还原到初始状态
+                                    }
                                 }
+                            });
+
+                            mapImage.addEventListener('mousedown', function (event) {
+                                if (event.button === 2 && isEnlarged) { // 右键按下且图片已放大
+                                    isDragging = true;
+                                    startX = event.clientX;
+                                    startY = event.clientY;
+                                    mapImage.classList.add('dragging');
+                                    event.preventDefault(); // 防止右键菜单弹出
+                                }
+                            });
+
+                            document.addEventListener('mousemove', function (event) {
+                                if (isDragging) {
+                                    const deltaX = (event.clientX - startX);
+                                    const deltaY = (event.clientY - startY);
+
+                                    translateX += deltaX;
+                                    translateY += deltaY;
+
+                                    mapImage.style.transform = `scale(${scaleFactor}) translate(${translateX}px, ${translateY}px)`;
+
+                                    startX = event.clientX;
+                                    startY = event.clientY;
+                                }
+                            });
+
+                            document.addEventListener('mouseup', function (event) {
+                                if (isDragging && event.button === 2) { // 右键释放
+                                    isDragging = false;
+                                    mapImage.classList.remove('dragging');
+                                }
+                            });
+
+                            mapImage.addEventListener('contextmenu', function (event) {
+                                if (isEnlarged) {
+                                    event.preventDefault(); // 阻止默认右键菜单
+                                }
+                            });
+
+                            mapImage.addEventListener('mouseleave', function () {
+                                if (isEnlarged) {
+                                    resetImage(); // 鼠标离开时还原图片
+                                }
+                            });
+
+                            function resetImage() {
+                                mapImage.style.transform = ''; // 还原transform
+                                mapImage.classList.remove('enlarged');
+                                translateX = 0;
+                                translateY = 0;
+                                isEnlarged = false;
                             }
                         });
-
-                        mapImage.addEventListener('mousedown', function (event) {
-                            if (event.button === 2 && isEnlarged) { // 右键按下且图片已放大
-                                isDragging = true;
-                                startX = event.clientX;
-                                startY = event.clientY;
-                                mapImage.classList.add('dragging');
-                                event.preventDefault(); // 防止右键菜单弹出
-                            }
-                        });
-
-                        document.addEventListener('mousemove', function (event) {
-                            if (isDragging) {
-                                const deltaX = (event.clientX - startX);
-                                const deltaY = (event.clientY - startY);
-
-                                translateX += deltaX;
-                                translateY += deltaY;
-
-                                mapImage.style.transform = `scale(${scaleFactor}) translate(${translateX}px, ${translateY}px)`;
-
-                                startX = event.clientX;
-                                startY = event.clientY;
-                            }
-                        });
-
-                        document.addEventListener('mouseup', function (event) {
-                            if (isDragging && event.button === 2) { // 右键释放
-                                isDragging = false;
-                                mapImage.classList.remove('dragging');
-                            }
-                        });
-
-                        mapImage.addEventListener('contextmenu', function (event) {
-                            if (isEnlarged) {
-                                event.preventDefault(); // 阻止默认右键菜单
-                            }
-                        });
-
-                        function resetImage() {
-                            mapImage.style.transform = ''; // 还原transform
-                            mapImage.classList.remove('enlarged');
-                            translateX = 0;
-                            translateY = 0;
-                            isEnlarged = false;
-                        }
                     });
-
                 </script>
-                <p>高德地图：<a href="https://ditu.amap.com/place/B0FFFD3OZX">https://ditu.amap.com/place/B0FFFD3OZX</a></p>
+                <h3 style="text-align: center; margin-top: 30px;">图片取自公众号：<strong>小财e课表</strong> 并修改，侵权请联系Makiiiiiiiho@gmail.com删除</h3>
             </div>
 
             <div class="tab-content" id="公告" style="display: none;">
-                <p>公告</p>
+
             </div>
 
             <div class="tab-content" id="新生" style="display: none;">
@@ -235,14 +247,15 @@
                             <p>4. 广东财经大学校园网：接收断网通知🤣</p>
                             <p>5. ⭐广财青年：第二课堂的入口（校园网 / VPN）</p>
                             <p>6. ⭐广财慕课：接收相关学习任务</p>
-                            <p>7. 广财大心理咨询中心：建议都关注一下~</p>
+                            <p>7. 雨课堂：好像也是广财慕课的</p>
+                            <p>8. 广财大心理咨询中心：建议都关注一下~</p>
                         </div>
                     </div>
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">小程序</h3>
                         <div class="collapsible-content" style="display: none;">
                             <p>趣智校园：洗澡用</p>
-                            <p>财大e卡：广财人的电子身份证，出入校园、充值校园卡、热水费电费等</p>
+                            <p>财大e卡：<u>广财人的电子身份证</u>，出入校园、充值校园卡、热水费电费等</p>
                             <p>车来了精准实时公交：踩点出门神器</p>
                             <p>广佛通X佛山乘车码：坐公交扫码用</p>
                             <p>端州区楷婕小食店 | 小食店：第三饭堂沙县小吃小程序，可预订且95折</p>
@@ -251,13 +264,18 @@
                         </div>
                     </div>
                     <div class="collapsible-section">
-                        <h3 class="collapsible-header">✨✨第二课堂？</h3>
+                        <h3 class="collapsible-header">✨✨第二课堂是什么？</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <p>第二课堂相关内容</p>
+                            <iframe src="subpages/Article/class2.html" frameborder="0"
+                                style="width: 100%; height: 500px; overflow-x: hidden; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;"
+                                title="class2"></iframe>
+
+
+
                         </div>
                     </div>
                     <div class="collapsible-section">
-                        <h3 class="collapsible-header">我需要打印，该去哪里？</h3>
+                        <h3 class="collapsible-header">⭐校园VPN</h3>
                         <div class="collapsible-content" style="display: none;">
                             <p>打印的相关信息</p>
                         </div>
@@ -265,7 +283,7 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">要去校外玩，该怎么坐车？</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <p>校外交通信息</p>
+                            <p>校车</p>
                         </div>
                     </div>
                 </div>

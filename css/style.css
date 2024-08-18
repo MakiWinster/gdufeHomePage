@@ -1,3 +1,4 @@
+/* 添加视口元标签以确保正确缩放 */
 .body {
     margin-top: 5%;
 }
@@ -15,27 +16,23 @@
     display: none;
 }
 
-
+/* #region - 响应式 */
 .container {
     margin: 3% auto;
-    /* 上下边距为 3%，左右边距自动以实现居中 */
     background-color: #fff;
     border-radius: 22px;
     box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
     width: 90%;
-    /* 设置适当的宽度 */
-    max-width: 1200px;
-    /* 可选，设置最大宽度 */
     padding: 20px;
+    font-size: 1rem; /* 使用相对单位定义字体大小 */
 }
 
 /* 针对宽度小于768px的设备 */
 @media (max-width: 768px) {
     .container {
         width: 95%;
-        /* 宽度稍微增加，确保在小屏幕上容器不会显得太窄 */
         padding: 15px;
-        /* 内边距减少，以适应小屏幕 */
+        font-size: 0.9rem; /* 缩小字体大小以适应屏幕 */
     }
 }
 
@@ -43,11 +40,15 @@
 @media (max-width: 480px) {
     .container {
         width: 100%;
-        /* 在极小屏幕上使用全宽度 */
         padding: 10px;
-        /* 内边距进一步减少 */
+        font-size: 0.8rem; /* 进一步缩小字体大小 */
+    }
+
+    .tab-content {
+        padding: 10px;
     }
 }
+/* #endregion */
 
 .link-item {
     display: flex;
@@ -77,17 +78,50 @@
     /* 在垂直方向上添加间隙 */
 }
 
+/* #region-标题logo响应式 */
+
 .header {
-    display: flex;
-    align-items: center;
     margin-bottom: 20px;
 }
 
-.logo {
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
+.header-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: inherit;
 }
+
+.logo {
+    width: 12%;
+    max-width: 112px;
+    height: auto;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.site-title {
+    font-family: 'Noto Serif SC', serif;
+    margin: 0;
+    font-weight: 800;
+    font-size: xx-large;
+}
+
+/* 在较小屏幕上居中显示 */
+@media screen and (max-width: 768px) {
+    .header-link {
+        justify-content: center;
+    }
+    
+    .logo {
+        width: 15%;
+    }
+    
+    .site-title {
+        font-size: x-large;
+    }
+}
+/* #endregion */
 
 /* #region-收款码 */
 .container2 {
@@ -256,4 +290,27 @@
     /* 默认隐藏内容 */
 }
 
+/* #endregion */
+
+/* #region-校园地图 */
+.map-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px; /* 控制两组地图与标题之间的间距 */
+    margin-top: 30px;
+}
+
+.map-container {
+    text-align: center;
+    flex: 1 1 300px; /* 在大屏幕上设置最小宽度 */
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* 限制图片的最大宽度 */
+    margin-top: 10px;
+}
 /* #endregion */
