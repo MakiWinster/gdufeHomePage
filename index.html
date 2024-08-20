@@ -30,6 +30,14 @@
         }
     </style>
     <!-- #endregion -->
+
+    <!-- #region - 图片预览库lightGallery -->
+    <!-- 引入 lightGallery CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.min.css">
+
+<!-- 引入 lightGallery JS -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
+<!-- #endregion -->
 </head>
 
 <body>
@@ -97,25 +105,7 @@
             </div>
 
             <div class="tab-content" id="公告" style="display: none;">
-                <div id="markdown-container" class="markdown-body"></div>
-                <script>
-                    // 直接在这里定义你的Markdown内容
-                    const markdownContent = `
-            # 标题
-            这是一个**Markdown**示例。
-            
-            - 项目1
-            - 项目2
-            
-            [链接](https://example.com)
-                    `;
-            
-                    // 将Markdown内容转换为HTML并插入到容器中
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const container = document.getElementById('markdown-container');
-                        container.innerHTML = marked.parse(markdownContent);
-                    });
-                </script>
+                <iframe src="README.md"></iframe>
             </div>
 
             <div class="tab-content" id="新生" style="display: none;">
@@ -192,18 +182,82 @@
                 <h2 style="margin-top: 30px;">有帮到你？考虑Donate一下吗~🥰</h2>
                 <div class="container2">
                     <div class="item">
-                        <img src="contents/image/WeChatPay.png" alt="Wechatpay">
+                        <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
                     </div>
                     <div class="item">
-                        <img src="contents/image/AliPay.png" alt="AliPay">
+                        <img src="contents/image/AliPay.png" alt="AliPay" class="clickable-img">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+
+    <script>
+        function renderMarkdown(file, iframe) {
+            fetch(file)
+                .then(response => response.text())
+                .then(text => {
+                    const container = document.createElement('div');
+                    container.className = 'markdown-body';
+                    container.innerHTML = marked.parse(text);
+                    iframe.replaceWith(container);
+                })
+                .catch(error => {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'markdown-body';
+                    errorDiv.innerText = '加载失败：' + error.message;
+                    iframe.replaceWith(errorDiv);
+                });
+        }
+
+        // 获取所有 iframe 元素
+        const iframes = document.querySelectorAll('iframe');
+
+        iframes.forEach(iframe => {
+            const src = iframe.getAttribute('src');
+            if (src && src.endsWith('.md')) {
+                // 如果是 Markdown 文件，则渲染
+                renderMarkdown(src, iframe);
+            }
+        });
+    </script>
+    <!-- #endregion -->
 </body>
-<!-- 导航栏js -->
+
+<!-- #region-markdown -->
+<script>
+    function renderMarkdown(file, iframe) {
+        fetch(file)
+            .then(response => response.text())
+            .then(text => {
+                const container = document.createElement('div');
+                container.className = 'markdown-body';
+                container.innerHTML = marked.parse(text);
+                iframe.replaceWith(container);
+            })
+            .catch(error => {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'markdown-body';
+                errorDiv.innerText = '加载失败：' + error.message;
+                iframe.replaceWith(errorDiv);
+            });
+    }
+
+    // 获取所有 iframe 元素
+    const iframes = document.querySelectorAll('iframe');
+
+    iframes.forEach(iframe => {
+        const src = iframe.getAttribute('src');
+        if (src && src.endsWith('.md')) {
+            // 如果是 Markdown 文件，则渲染
+            renderMarkdown(src, iframe);
+        }
+    });
+</script>
+<!-- #endregion -->
+<!-- #region - 导航栏js -->
 <script>
     function openTab(evt, tabId) {
         var i, tabcontent, tablinks;
@@ -247,40 +301,20 @@
 
 
 </script>
-
-<!-- 付款码点击打开 -->
+<!-- #endregion -->
+<!-- #region-可放大照片 -->
 <script>
-    document.querySelectorAll('.container2 img').forEach(img => {
-        img.addEventListener('click', function () {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100%';
-            modal.style.height = '100%';
-            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.style.zIndex = '1000';
-
-            const largeImg = document.createElement('img');
-            largeImg.src = this.src;
-            largeImg.style.maxWidth = '90%';
-            largeImg.style.maxHeight = '90%';
-            largeImg.style.boxShadow = '0px 8px 16px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.3)';
-
-            modal.appendChild(largeImg);
-            document.body.appendChild(modal);
-
-            modal.addEventListener('click', function () {
-                document.body.removeChild(modal);
-            });
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    lightGallery(document.querySelector('.container'), {
+        selector: '.clickable-img',
+        zoom: true,  // 启用缩放功能
+        download: false,  // 禁用下载按钮
     });
-</script>
+});
 
-<!-- 搜索栏 -->
+</script>
+<!-- #endregion -->
+<!-- #region - 搜索栏 -->
 <script>
     // 加载的时候聚焦到bing上
     document.addEventListener('DOMContentLoaded', function () {
@@ -316,5 +350,5 @@
     setupEnterKeyListener('bing-search', searchBing);
     setupEnterKeyListener('baidu-search', searchBaidu);
 </script>
-
+<!-- #endregion -->
 </html>

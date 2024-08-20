@@ -119,6 +119,15 @@ p {
 }
 /* #endregion */
 
+/* #region-可打开图片 */
+/* 示例自定义样式 */
+.container img.clickable-img {
+    cursor: pointer;
+    /* 其他样式 */
+}
+
+/* #endregion */
+
 /* #region-收款码 */
 /* 图片 */
 .item {
