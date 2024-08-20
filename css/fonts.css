@@ -45,6 +45,6 @@ body::-webkit-scrollbar {
 }
 
 @font-face {
-    font-family: 'zhengwenSerif';
+    font-family: 'BoldEng';
     src: url('../contents/fonts/taileb.ttf') format('truetype');
 }

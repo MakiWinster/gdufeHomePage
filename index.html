@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,27 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/material/nav.css">
     <script src="javascript/javascript.js"></script>
+
+    <!-- 动画 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- #region - Markdown -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 40px;
+        }
+    </style>
+    <!-- #endregion -->
 </head>
 
 <body>
@@ -40,37 +59,6 @@
                     </button>
                 </div>
             </div>
-            <script>
-                // Bing搜索功能
-                function searchBing() {
-                    const query = document.getElementById('bing-search').value;
-                    if (query) {
-                        window.location.href = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
-                    }
-                }
-
-                // Baidu搜索功能
-                function searchBaidu() {
-                    const query = document.getElementById('baidu-search').value;
-                    if (query) {
-                        window.location.href = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
-                    }
-                }
-
-                // 监听搜索框的Enter键
-                function setupEnterKeyListener(id, searchFunction) {
-                    document.getElementById(id).addEventListener('keyup', function (e) {
-                        console.log("Key pressed: ", e.key); // 输出按下的键
-                        if (e.key === 'Enter') {
-                            e.preventDefault(); // 防止默认行为
-                            searchFunction();
-                        }
-                    });
-                }
-
-                setupEnterKeyListener('bing-search', searchBing);
-                setupEnterKeyListener('baidu-search', searchBaidu);
-            </script>
 
             <ul id="nav">
                 <li class="slide1"></li>
@@ -81,54 +69,12 @@
                 <li><a href="#" class="tab-link" onclick="openTab(event, '新生')">新生</a></li>
                 <li><a href="#" class="tab-link" onclick="openTab(event, '建议')">建议/联系</a></li>
             </ul>
-            <script>
-                function openTab(evt, tabId) {
-                    var i, tabcontent, tablinks;
-                    tabcontent = document.getElementsByClassName("tab-content");
-                    for (i = 0; i < tabcontent.length; i++) {
-                        tabcontent[i].style.display = "none";
-                    }
-                    tablinks = document.getElementsByClassName("tab-link");
-                    for (i = 0; i < tablinks.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(" active", "");
-                    }
-                    document.getElementById(tabId).style.display = "block";
-                    evt.currentTarget.className += " active";
-                }
 
-                // 默认打开常用
-                document.addEventListener("DOMContentLoaded", function () {
-                    // Call openTab with default tab
-                    var defaultTab = '常用';
-                    var defaultTabLink = document.querySelector(`a[onclick*="${defaultTab}"]`);
-                    if (defaultTabLink) {
-                        openTab({ currentTarget: defaultTabLink }, defaultTab);
-                    }
-                });
-                $("#nav a").on("click", function () {
-                    var position = $(this).parent().position();
-                    var width = $(this).parent().width();
-                    $("#nav .slide1").css({ opacity: 1, left: +position.left, width: width });
-                });
-                $("#nav a").on("mouseover", function () {
-                    var position = $(this).parent().position();
-                    var width = $(this).parent().width();
-                    $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width }).addClass("squeeze");
-                });
-                $("#nav a").on("mouseout", function () {
-                    $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
-                });
-                var currentWidth = $("#nav li:nth-of-type(3) a").parent("li").width();
-                var current = $("li:nth-of-type(3) a").position();
-                $("#nav .slide1").css({ left: +current.left, width: currentWidth });
-
-
-            </script>
         </div>
         <div class="tab-container">
             <div class="tab-content" id="常用">
                 <!-- 推荐内容 -->
-                <iframe src="subpages/_resource/links.html" frameborder="0"
+                <iframe src="subpages/resourcePage/links.html" frameborder="0"
                     style="width: 100%; height: 800px; overflow: hidden;" scrolling="no" title="链接页面"></iframe>
             </div>
 
@@ -146,94 +92,30 @@
                         <img src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image">
                     </div>
                 </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const mapImages = document.querySelectorAll('.map-image');
-                        mapImages.forEach(mapImage => {
-                            let isEnlarged = false;
-                            let isDragging = false;
-                            let startX = 0, startY = 0;
-                            let translateX = 0, translateY = 0;
-                            let scaleFactor = 2.5;
-
-                            mapImage.addEventListener('click', function (event) {
-                                if (event.button === 0) { // 左键点击
-                                    if (!isEnlarged) {
-                                        const rect = mapImage.getBoundingClientRect();
-                                        const offsetX = event.clientX - rect.left;
-                                        const offsetY = event.clientY - rect.top;
-
-                                        const originX = (offsetX / mapImage.clientWidth) * 100;
-                                        const originY = (offsetY / mapImage.clientHeight) * 100;
-
-                                        mapImage.style.transformOrigin = `${originX}% ${originY}%`;
-                                        mapImage.classList.add('enlarged');
-                                        isEnlarged = true;
-                                    } else {
-                                        resetImage(); // 还原到初始状态
-                                    }
-                                }
-                            });
-
-                            mapImage.addEventListener('mousedown', function (event) {
-                                if (event.button === 2 && isEnlarged) { // 右键按下且图片已放大
-                                    isDragging = true;
-                                    startX = event.clientX;
-                                    startY = event.clientY;
-                                    mapImage.classList.add('dragging');
-                                    event.preventDefault(); // 防止右键菜单弹出
-                                }
-                            });
-
-                            document.addEventListener('mousemove', function (event) {
-                                if (isDragging) {
-                                    const deltaX = (event.clientX - startX);
-                                    const deltaY = (event.clientY - startY);
-
-                                    translateX += deltaX;
-                                    translateY += deltaY;
-
-                                    mapImage.style.transform = `scale(${scaleFactor}) translate(${translateX}px, ${translateY}px)`;
-
-                                    startX = event.clientX;
-                                    startY = event.clientY;
-                                }
-                            });
-
-                            document.addEventListener('mouseup', function (event) {
-                                if (isDragging && event.button === 2) { // 右键释放
-                                    isDragging = false;
-                                    mapImage.classList.remove('dragging');
-                                }
-                            });
-
-                            mapImage.addEventListener('contextmenu', function (event) {
-                                if (isEnlarged) {
-                                    event.preventDefault(); // 阻止默认右键菜单
-                                }
-                            });
-
-                            mapImage.addEventListener('mouseleave', function () {
-                                if (isEnlarged) {
-                                    resetImage(); // 鼠标离开时还原图片
-                                }
-                            });
-
-                            function resetImage() {
-                                mapImage.style.transform = ''; // 还原transform
-                                mapImage.classList.remove('enlarged');
-                                translateX = 0;
-                                translateY = 0;
-                                isEnlarged = false;
-                            }
-                        });
-                    });
-                </script>
-                <h3 style="text-align: center; margin-top: 30px;">图片取自公众号：<strong>小财e课表</strong> 并修改，侵权请联系Makiiiiiiiho@gmail.com删除</h3>
+                <h3 style="text-align: center; margin-top: 30px;">图片取自公众号：<strong>小财e课表</strong>
+                    并修改，侵权请联系Makiiiiiiiho@gmail.com删除</h3>
             </div>
 
             <div class="tab-content" id="公告" style="display: none;">
-
+                <div id="markdown-container" class="markdown-body"></div>
+                <script>
+                    // 直接在这里定义你的Markdown内容
+                    const markdownContent = `
+            # 标题
+            这是一个**Markdown**示例。
+            
+            - 项目1
+            - 项目2
+            
+            [链接](https://example.com)
+                    `;
+            
+                    // 将Markdown内容转换为HTML并插入到容器中
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const container = document.getElementById('markdown-container');
+                        container.innerHTML = marked.parse(markdownContent);
+                    });
+                </script>
             </div>
 
             <div class="tab-content" id="新生" style="display: none;">
@@ -256,6 +138,7 @@
                         <div class="collapsible-content" style="display: none;">
                             <p>趣智校园：洗澡用</p>
                             <p>财大e卡：<u>广财人的电子身份证</u>，出入校园、充值校园卡、热水费电费等</p>
+                            <p>小速校园：看课表看成绩很方便</p>
                             <p>车来了精准实时公交：踩点出门神器</p>
                             <p>广佛通X佛山乘车码：坐公交扫码用</p>
                             <p>端州区楷婕小食店 | 小食店：第三饭堂沙县小吃小程序，可预订且95折</p>
@@ -269,15 +152,15 @@
                             <iframe src="subpages/Article/class2.html" frameborder="0"
                                 style="width: 100%; height: 500px; overflow-x: hidden; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;"
                                 title="class2"></iframe>
-
-
-
                         </div>
                     </div>
+
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">⭐校园VPN</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <p>打印的相关信息</p>
+                            <p>为减轻服务器压力，以下文件已做适当删减和压缩<s>（没钱）</s>：</p>
+                            <a href="contents/Files/VPN-Windows.pdf">1. Windows电脑</a><br>
+                            <a href="contents/Files/安卓、苹果（ios）、MacOS.pdf">2. 安卓、苹果手机、苹果电脑</a>
                         </div>
                     </div>
                     <div class="collapsible-section">
@@ -286,6 +169,22 @@
                             <p>校车</p>
                         </div>
                     </div>
+
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">选课注意事项</h3>
+                        <div class="collapsible-content" style="display: none;">
+                            <p>校车</p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">要去校外玩，该怎么坐车？</h3>
+                        <div class="collapsible-content" style="display: none;">
+                            <p>校车</p>
+                        </div>
+                    </div>
+
+                    
                 </div>
             </div>
             <div class="tab-content" id="建议" style="display: none;">
@@ -298,43 +197,124 @@
                     <div class="item">
                         <img src="contents/image/AliPay.png" alt="AliPay">
                     </div>
-                    <!-- 点击打开图片 -->
-                    <script>
-
-                        document.querySelectorAll('.container2 img').forEach(img => {
-                            img.addEventListener('click', function () {
-                                const modal = document.createElement('div');
-                                modal.style.position = 'fixed';
-                                modal.style.top = '0';
-                                modal.style.left = '0';
-                                modal.style.width = '100%';
-                                modal.style.height = '100%';
-                                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-                                modal.style.display = 'flex';
-                                modal.style.justifyContent = 'center';
-                                modal.style.alignItems = 'center';
-                                modal.style.zIndex = '1000';
-
-                                const largeImg = document.createElement('img');
-                                largeImg.src = this.src;
-                                largeImg.style.maxWidth = '90%';
-                                largeImg.style.maxHeight = '90%';
-                                largeImg.style.boxShadow = '0px 8px 16px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.3)';
-
-                                modal.appendChild(largeImg);
-                                document.body.appendChild(modal);
-
-                                modal.addEventListener('click', function () {
-                                    document.body.removeChild(modal);
-                                });
-                            });
-                        });
-                    </script>
                 </div>
-
             </div>
         </div>
     </div>
+
 </body>
+<!-- 导航栏js -->
+<script>
+    function openTab(evt, tabId) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabId).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // 默认打开常用
+    document.addEventListener("DOMContentLoaded", function () {
+        // Call openTab with default tab
+        var defaultTab = '常用';
+        var defaultTabLink = document.querySelector(`a[onclick*="${defaultTab}"]`);
+        if (defaultTabLink) {
+            openTab({ currentTarget: defaultTabLink }, defaultTab);
+        }
+    });
+    $("#nav a").on("click", function () {
+        var position = $(this).parent().position();
+        var width = $(this).parent().width();
+        $("#nav .slide1").css({ opacity: 1, left: +position.left, width: width });
+    });
+    $("#nav a").on("mouseover", function () {
+        var position = $(this).parent().position();
+        var width = $(this).parent().width();
+        $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width }).addClass("squeeze");
+    });
+    $("#nav a").on("mouseout", function () {
+        $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
+    });
+    var currentWidth = $("#nav li:nth-of-type(3) a").parent("li").width();
+    var current = $("li:nth-of-type(3) a").position();
+    $("#nav .slide1").css({ left: +current.left, width: currentWidth });
+
+
+</script>
+
+<!-- 付款码点击打开 -->
+<script>
+    document.querySelectorAll('.container2 img').forEach(img => {
+        img.addEventListener('click', function () {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
+
+            const largeImg = document.createElement('img');
+            largeImg.src = this.src;
+            largeImg.style.maxWidth = '90%';
+            largeImg.style.maxHeight = '90%';
+            largeImg.style.boxShadow = '0px 8px 16px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.3)';
+
+            modal.appendChild(largeImg);
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', function () {
+                document.body.removeChild(modal);
+            });
+        });
+    });
+</script>
+
+<!-- 搜索栏 -->
+<script>
+    // 加载的时候聚焦到bing上
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('bing-search').focus();
+    });
+    // Bing搜索功能
+    function searchBing() {
+        const query = document.getElementById('bing-search').value;
+        if (query) {
+            window.location.href = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    // Baidu搜索功能
+    function searchBaidu() {
+        const query = document.getElementById('baidu-search').value;
+        if (query) {
+            window.location.href = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
+        }
+    }
+
+    // 监听搜索框的Enter键
+    function setupEnterKeyListener(id, searchFunction) {
+        document.getElementById(id).addEventListener('keyup', function (e) {
+            console.log("Key pressed: ", e.key); // 输出按下的键
+            if (e.key === 'Enter') {
+                e.preventDefault(); // 防止默认行为
+                searchFunction();
+            }
+        });
+    }
+
+    setupEnterKeyListener('bing-search', searchBing);
+    setupEnterKeyListener('baidu-search', searchBaidu);
+</script>
 
 </html>
