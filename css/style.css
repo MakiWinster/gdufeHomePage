@@ -140,13 +140,14 @@ p {
 
 
 .container2 {
-    width: 60%;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-wrap: nowrap;
-    /* 禁止换行，确保图片并列 */
-    justify-content: space-between;
-    /* 在图片之间留出间隙 */
+    text-align: center;
+    margin: 0 auto; /* 将 container2 水平居中 */
 }
+
 
 .container2 .item {
     flex: 1 1 auto;
@@ -164,10 +165,9 @@ p {
     margin-top: 20px;
     width: 100%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.2);
-    display: block;
+    display: inline-block;
     height: auto;
     transition: box-shadow 0.3s ease;
-    /* 添加阴影的过渡效果 */
 }
 
 .container2 img:hover {

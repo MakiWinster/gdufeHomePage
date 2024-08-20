@@ -178,16 +178,30 @@
                 </div>
             </div>
             <div class="tab-content" id="建议" style="display: none;">
+                <p>最好去Github提Issue，顺便给我点个Star⭐吧🥰</p>
                 <p>可以把建议发送到Makiiiiiiiho@gmail.com噢</p>
-                <h2 style="margin-top: 30px;">有帮到你？考虑Donate一下吗~🥰</h2>
-                <div class="container2">
-                    <div class="item">
-                        <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
-                    </div>
-                    <div class="item">
-                        <img src="contents/image/AliPay.png" alt="AliPay" class="clickable-img">
+                
+                <h2 style="margin-top: 30px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
+                <div style="text-align: center;">
+                    <button id="showImagesButton" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
+                </div>
+                <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
+                    <div class="container2" style="text-align: center;">
+                        <div class="item">
+                            <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
+                        </div>
+                        <div class="item">
+                            <img src="contents/image/AliPay.png"magt="AliPay" class="clickable-img">
+                        </div>
                     </div>
                 </div>
+                
+                <script>
+                document.getElementById('showImagesButton').addEventListener('click', function() {
+                    document.getElementById('imageContainer').style.display = 'block';
+                });
+                </script>
+                
             </div>
         </div>
     </div>
