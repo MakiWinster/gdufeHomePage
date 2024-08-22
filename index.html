@@ -90,16 +90,56 @@
                 <p style="text-align: center;">/***鼠标左键点击放大，摁住右键可拖拽，再次左键点击还原***/</p>
                 <p style="text-align: center;">/***手机可长按保存在相册查看***/</p>
 
-                <div class="map-wrapper">
-                    <div class="map-container">
-                        <h1>佛山校区地图</h1>
-                        <img src="contents/image/sanshui.jpg" alt="Map" class="map-image">
-                    </div>
-                    <div class="map-container">
-                        <h1>广州校区地图</h1>
-                        <img src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image">
-                    </div>
-                </div>
+    <!-- 默认内容 -->
+    <div id="map-wrapper" class="map-wrapper">
+        <div class="map-container">
+            <h1>佛山校区地图</h1>
+            <img src="contents/image/sanshui.jpg" alt="Map" class="map-image">
+        </div>
+        <div class="map-container">
+            <h1>广州校区地图</h1>
+            <img src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image">
+        </div>
+    </div>
+
+    <!-- 触摸端内容 -->
+    <div id="container-map" class="container-map">
+        <div class="map-cell">
+            <div class="map-title">佛山校区</div>
+            <img src="contents/image/sanshui.jpg" class="clickable-img" alt="佛山校区地图">
+        </div>
+        <div class="map-cell">
+            <div class="map-title">广州校区</div>
+            <img src="contents/image/guangzhou.jpg" class="clickable-img" alt="广州校区地图">
+        </div>
+    </div>
+    <script>
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (isTouchDevice()) {
+                document.getElementById('map-wrapper').style.display = 'none';
+                document.getElementById('container-map').style.display = 'block';
+            } else {
+                document.getElementById('map-wrapper').style.display = 'block';
+                document.getElementById('container-map').style.display = 'none';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    if (isTouchDevice()) {
+        document.getElementById('map-wrapper').style.display = 'none';
+        document.getElementById('container-map').style.display = 'flex'; /* 使用 flex 显示容器 */
+    } else {
+        document.getElementById('map-wrapper').style.display = 'flex'; /* 使用 flex 显示容器 */
+        document.getElementById('container-map').style.display = 'none';
+    }
+});
+
+    </script>
+                
                 <h3 style="text-align: center; margin-top: 30px;">图片取自公众号：<strong>小财e课表</strong>
                     并修改，侵权请联系Makiiiiiiiho@gmail.com删除</h3>
             </div>
@@ -289,42 +329,64 @@
 
     // 默认打开常用
     document.addEventListener("DOMContentLoaded", function () {
-        // Call openTab with default tab
         var defaultTab = '常用';
         var defaultTabLink = document.querySelector(`a[onclick*="${defaultTab}"]`);
         if (defaultTabLink) {
             openTab({ currentTarget: defaultTabLink }, defaultTab);
         }
     });
+
+    function updateSlideSize(slideSelector, element) {
+        var position = element.parent().position();
+        var width = element.parent().width();
+        var height = element.outerHeight(); // 获取元素高度
+
+        $(slideSelector).css({ 
+            opacity: 1, 
+            left: +position.left, 
+            width: width,
+            height: height // 动态调整高度
+        });
+    }
+
     $("#nav a").on("click", function () {
-        var position = $(this).parent().position();
-        var width = $(this).parent().width();
-        $("#nav .slide1").css({ opacity: 1, left: +position.left, width: width });
+        updateSlideSize("#nav .slide1", $(this));
     });
+
     $("#nav a").on("mouseover", function () {
-        var position = $(this).parent().position();
-        var width = $(this).parent().width();
-        $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width }).addClass("squeeze");
+        updateSlideSize("#nav .slide2", $(this));
+        $("#nav .slide2").addClass("squeeze");
     });
+
     $("#nav a").on("mouseout", function () {
         $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
     });
-    var currentWidth = $("#nav li:nth-of-type(3) a").parent("li").width();
-    var current = $("li:nth-of-type(3) a").position();
-    $("#nav .slide1").css({ left: +current.left, width: currentWidth });
 
-
+    var initialElement = $("#nav li:nth-of-type(3) a");
+    updateSlideSize("#nav .slide1", initialElement);
 </script>
+
+
 <!-- #endregion -->
 <!-- #region-可放大照片 -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     lightGallery(document.querySelector('.container'), {
         selector: '.clickable-img',
-        zoom: true,  // 启用缩放功能
-        download: false,  // 禁用下载按钮
+        zoom: true,          // 启用缩放功能
+        download: false,     // 禁用下载按钮
+        controls: false,     // 禁用左右切换按钮
+        escKey: true,        // 允许通过Esc键关闭图片
+        keyPress: false,     // 禁用键盘左右箭头切换图片
+        slideEndAnimation: false,  // 禁用图片切换动画
+        enableSwipe: false,  // 禁用触摸滑动切换功能
+        enableDrag: false,   // 禁用拖动切换功能
+        toolbar: false       // 禁用工具栏
     });
 });
+
+
+
 
 </script>
 <!-- #endregion -->

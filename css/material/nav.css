@@ -27,8 +27,8 @@
 
 #nav li a {
     position: relative;
-    padding: 12px 15px;
-    font: 500 24px 'cuteTitle';
+    padding: 0.75rem 0.9375rem; /* 使用rem单位 */
+    font: 500 1.5rem 'cuteTitle'; /* 默认字体大小为1.5rem */
     border: none;
     outline: none;
     color: rgb(28, 34, 52);
@@ -37,18 +37,20 @@
     z-index: 3;
 }
 
+/* Default styles for slide1 and slide2 */
 .slide1,
 .slide2 {
     position: absolute;
     display: inline-block;
-    height: 45px;
     border-radius: 1.5em;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+    height: auto;
 }
 
 .slide1 {
     background-color: rgb(192, 203, 242);
     z-index: 2;
+    box-shadow: 0 0 20px #ffffffaa inset;
 }
 
 .slide2 {
@@ -57,6 +59,14 @@
     z-index: 1;
     box-shadow: 0 0 20px #ffffffaa inset;
 }
+
+/* Media query for touch devices */
+@media (max-width: 768px), (pointer: coarse) {
+    .slide2 {
+        display: none; /* Hide slide2 on touch devices */
+    }
+}
+
 
 .squeeze {
     transform: scale(0.9);

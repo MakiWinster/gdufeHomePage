@@ -307,24 +307,71 @@ p {
 /* #endregion */
 
 /* #region-校园地图 */
+/* 触摸设备 */
+.container-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 水平居中对齐 */
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto; /* 确保容器居中 */
+}
+
+/* 每个地图单元格 */
+.map-cell {
+    flex: 1 1 calc(50% - 20px); /* 确保在大屏幕上并排显示 */
+    max-width: 500px;
+    min-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff; /* 背景色 */
+    margin: 10px; /* 增加间距以防止内容贴边 */
+}
+
+.map-cell img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* 添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 应用阴影到图片上 */
+}
+
+/* PC */
 .map-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px; /* 控制两组地图与标题之间的间距 */
-    margin-top: 30px;
+    justify-content: center; /* 水平居中对齐 */
+    gap: 70px; /* 控制两个地图之间的间距 */
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto; /* 确保容器居中 */
 }
 
 .map-container {
+    flex: 1 1 calc(50% - 20px); /* 确保在大屏幕上并排显示 */
+    max-width: 500px; /* 最大宽度500px */
+    min-width: 300px; /* 最小宽度300px，确保较窄的屏幕时能够换行 */
     text-align: center;
-    flex: 1 1 300px; /* 在大屏幕上设置最小宽度 */
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff; /* 背景色 */
+    margin: 10px; /* 增加间距以防止内容贴边 */
 }
 
-.map-image {
+.map-container img {
     width: 100%;
     height: auto;
-    max-width: 500px; /* 限制图片的最大宽度 */
-    margin-top: 10px;
+    display: block;
+    border-radius: 10px; /* 添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 应用阴影到图片上 */
 }
+
+.map-container h1 {
+    font-size: 1.5em;
+    margin: 20px 0;
+    font-weight: bold; /* 更突出的标题 */
+}
+
 /* #endregion */
