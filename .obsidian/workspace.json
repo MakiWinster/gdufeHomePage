@@ -11,8 +11,12 @@
             "id": "5be24f3fc3cde517",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ]
@@ -138,12 +146,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5985230ac7e17cad",
+  "active": "5be24f3fc3cde517",
   "lastOpenFiles": [
+    "contents/image/resource/Readme-Edge1.png",
+    "contents/image/resource/Readme-Edge3.png",
+    "contents/image/resource/Readme-Edge4.png",
+    "README.md",
+    "contents/image/resource",
+    "contents/image/resource/Readme-Edge2.png",
     "contents/image/white.png",
     "css/link.css",
     "subpages/_resource/links.html",
-    "README.md",
     "subpages/Article/校园VPN.md",
     "subpages/Article"
   ]

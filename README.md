@@ -1,12 +1,23 @@
 # 广财起始页！
-专为广财学子设计的个性化浏览器启动页，集成了校园生活中常用的网页快捷方式，让校园生活更加便捷高效。
+来广财差不多一年了，记起来以前
 
-## 功能特点
-- 个性化定制：根据广财学子的需求，精心挑选了多个实用的网页快捷方式，如教务系统、图书馆、校园网等。
-- 简洁易用：界面简洁，操作方便，只需点击即可快速进入所需网页。
-- 不定期更新：不定期更新快捷方式，完全看心情。
-- 免费使用：无需下载安装，直接在浏览器中打开即可使用，完全免费。
+## 特点
+- 个性化定制：挑选了多个非常常用的网页放在主页，把启动页设置为**广财起始页**，平时需要的时候打开浏览器直接点击即可。
+- 不定期更新：学校有通知、活动等可能会做公告，有时
 
 ## 使用方法
-1. 克隆本项目 Clone the repository to your local machine.
-2. 在浏览器中打开index.html文件以开始使用自定义主页。Open the index.html file in your browser to start using the customized homepage.
+#### 1. 浏览器设为主页
+电脑：Edge、chrome、firefox（统一，由于新建标签受限，只能借助第三方插件完成）
+手机：百度、QQ、Edge
+##### 电脑端
+1. 安装插件 → [New Tab Changer - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/new-tab-changer/dlbnebcbaeajdpekcdhmcgdhoodcjpeg)
+2. 这里以edge为例：
+![[contents/image/resource/Readme-Edge1.png|400]]
+![[contents/image/resource/Readme-Edge2.png]]
+![[contents/image/resource/Readme-Edge4.png]]
+![[contents/image/resource/Readme-Edge3.png]]
+#### 2. 本地部署
+
+## 说明
+由于使用的是国外的服务器，会慢一点点
+
