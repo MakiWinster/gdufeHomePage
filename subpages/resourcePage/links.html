@@ -181,44 +181,47 @@
 
         <!-- 鼠标旁边显示图片的动画 -->
         <script>
-            document.querySelectorAll('.link-item').forEach(item => {
-                const tooltip = item.querySelector('.tooltip'); // 从每个 link-item 中找到对应的 tooltip
-                const imgSrc = item.getAttribute('data-image');
-                tooltip.innerHTML = `<img src="${imgSrc}" alt="Tooltip Image">`;
-
-                item.addEventListener('mousemove', (e) => {
-                    const { clientX: x, clientY: y } = e;
-                    const tooltipWidth = tooltip.offsetWidth;
-                    const tooltipHeight = tooltip.offsetHeight;
-                    const screenWidth = window.innerWidth;
-                    const screenHeight = window.innerHeight;
-
-                    let left = x + 10; // 10px 偏移量
-                    let top = y + 10; // 10px 偏移量
-
-                    // 确保图片不超出右边界
-                    if (left + tooltipWidth > screenWidth) {
-                        left = x - tooltipWidth - 10;
-                    }
-
-                    // 确保图片不超出底部边界
-                    if (top + tooltipHeight > screenHeight) {
-                        top = y - tooltipHeight - 10;
-                    }
-
-                    tooltip.style.left = `${left}px`;
-                    tooltip.style.top = `${top}px`;
+            if (!window.matchMedia("(pointer: coarse)").matches) {
+                document.querySelectorAll('.link-item').forEach(item => {
+                    const tooltip = item.querySelector('.tooltip'); // 从每个 link-item 中找到对应的 tooltip
+                    const imgSrc = item.getAttribute('data-image');
+                    tooltip.innerHTML = `<img src="${imgSrc}" alt="Tooltip Image">`;
+        
+                    item.addEventListener('mousemove', (e) => {
+                        const { clientX: x, clientY: y } = e;
+                        const tooltipWidth = tooltip.offsetWidth;
+                        const tooltipHeight = tooltip.offsetHeight;
+                        const screenWidth = window.innerWidth;
+                        const screenHeight = window.innerHeight;
+        
+                        let left = x + 10; // 10px 偏移量
+                        let top = y + 10; // 10px 偏移量
+        
+                        // 确保图片不超出右边界
+                        if (left + tooltipWidth > screenWidth) {
+                            left = x - tooltipWidth - 10;
+                        }
+        
+                        // 确保图片不超出底部边界
+                        if (top + tooltipHeight > screenHeight) {
+                            top = y - tooltipHeight - 10;
+                        }
+        
+                        tooltip.style.left = `${left}px`;
+                        tooltip.style.top = `${top}px`;
+                    });
+        
+                    item.addEventListener('mouseleave', () => {
+                        tooltip.style.display = 'none';
+                    });
+        
+                    item.addEventListener('mouseenter', () => {
+                        tooltip.style.display = 'block';
+                    });
                 });
-
-                item.addEventListener('mouseleave', () => {
-                    tooltip.style.display = 'none';
-                });
-
-                item.addEventListener('mouseenter', () => {
-                    tooltip.style.display = 'block';
-                });
-            });
-
+            }
         </script>
+        
+        
     </div>
 </body>

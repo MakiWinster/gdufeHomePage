@@ -19,40 +19,69 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        .markdown-body {
-            box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 45px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            margin-bottom: 40px;
-        }
 
-        .markdown-body img {
-            display: block;
-            margin: 20px auto;
-            /* 居中显示 */
-            max-width: 100%;
-            /* 防止图片超出容器 */
-            height: auto;
-            /* 保持图片比例 */
-        }
 
-        /* 可选：调整图片大小 */
-        .markdown-body img.small {
-            max-width: 50%;
-        }
+/* Markdown 样式 */
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 40px;
+}
 
-        .markdown-body img.medium {
-            max-width: 75%;
-        }
+/* 图片样式 */
+.markdown-body img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
 
-        .markdown-body img.large {
-            max-width: 100%;
-        }
+/* 图片大小类 */
+.markdown-body img.small {
+    max-width: 50%;
+}
+
+.markdown-body img.medium {
+    max-width: 75%;
+}
+
+.markdown-body img.large {
+    max-width: 100%;
+}
+
+/* 点击效果 */
+.markdown-body img.clickable-img {
+    cursor: pointer;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    article.markdown-body {
+        padding: 5px; /* 在屏幕宽度较小时调整 padding */
+    }
+
+    .markdown-body img.small {
+        max-width: 60%; /* 在手机上稍微增大 */
+    }
+
+    .markdown-body img.medium {
+        max-width: 85%; /* 在手机上稍微增大 */
+    }
+
+    .markdown-body img.large {
+        max-width: 100%; /* 保持全宽 */
+    }
+}
+
+
+
+
     </style>
     <!-- #endregion -->
 

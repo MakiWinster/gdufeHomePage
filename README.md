@@ -16,24 +16,34 @@
 #### 电脑端
 1. 安装插件 → [New Tab Changer - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/new-tab-changer/dlbnebcbaeajdpekcdhmcgdhoodcjpeg)<div id="NTC"></div>
 2. 这里以edge为例：  
-<center style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-bottom: 10px;">
+<center style="font-weight: bold; font-size: 1em; margin-top: 1.25em; margin-bottom: 0.75em;">
     打开浏览器扩展页
 </center>
+
 <article class="markdown-body">
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231411059.png" alt="Image 1" class="medium">
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231412481.png" alt="Image 2" class="smaill">
-    <center style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-bottom: 10px;">
+    <div class="image-container">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231411059.png" alt="Image 1" class="medium">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231412481.png" alt="Image 2" class="smaill">
+    </div>
+    <center style="font-weight: bold; font-size: 1em; margin-top: 1.25em; margin-bottom: 0.75em;">
         找到插件，确保开启，并且点击"详细信息"
     </center>
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231442899.png" alt="Image-bu" class="medium">
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231413866.png" alt="Image 3" class="smaill">
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231414765.png" alt="Image 4" class="smaill">
-    <center style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-bottom: 10px;">
+    <div class="image-container">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231442899.png" alt="Image-bu" class="medium">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231413866.png" alt="Image 3" class="smaill">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231414765.png" alt="Image 4" class="smaill">
+    </div>
+    <center style="font-weight: bold; font-size: 1em; margin-top: 1.25em; margin-bottom: 0.75em;">
         打开Edge设置页，确保主页选中New Tab Changer
     </center>
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231757885.png" alt="Image 6" class="smaill">
-    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231757885.png" alt="Image 5" class="smaill">
+    <div class="image-container">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231757885.png" alt="Image 6" class="smaill">
+        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231757885.png" alt="Image 5" class="smaill">
+    </div>
 </article>
+
+
+
 
 
 <div id="Local"></div>
