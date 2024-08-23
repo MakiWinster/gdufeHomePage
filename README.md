@@ -15,15 +15,25 @@
 #### 电脑端
 1. 安装插件 → [New Tab Changer - Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/new-tab-changer/dlbnebcbaeajdpekcdhmcgdhoodcjpeg)<div id="NTC"></div>
 2. 这里以edge为例：  
-<center>打开浏览器扩展页</center>
-    <article class="markdown-body">
-        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231411059.png" alt="Image 1" class="small">
-        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231412481.png" alt="Image 2" class="smaill">
-<center>找到插件，确保开启，并且点击"详细信息"</center>
-        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231442899.png" alt="Image-bu" class="medium">
-        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231413866.png" alt="Image 3" class="smaill">
-        <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231414765.png" alt="Image 4" class="smaill">
-    </article>
+<center style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-bottom: 10px;">
+    打开浏览器扩展页
+</center>
+<article class="markdown-body">
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231411059.png" alt="Image 1" class="medium">
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231412481.png" alt="Image 2" class="smaill">
+    <center style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-bottom: 10px;">
+        找到插件，确保开启，并且点击"详细信息"
+    </center>
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231442899.png" alt="Image-bu" class="medium">
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231413866.png" alt="Image 3" class="smaill">
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231414765.png" alt="Image 4" class="smaill">
+    <center style="font-weight: bold; font-size: 20px; margin-top: 20px; margin-bottom: 10px;">
+        打开Edge设置页，确保主页选中New Tab Changer
+    </center>
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231757885.png" alt="Image 6" class="smaill">
+    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231757885.png" alt="Image 5" class="smaill">
+</article>
+
 
 <div id="Local"></div>
 
@@ -31,8 +41,6 @@
 1. 打开GitHub项目页：[MakiWinster/gdufeHomePage (github.com)](https://github.com/MakiWinster/gdufeHomePage)
 2. 依次单击
 ![](https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408231418156.png)
-
-
 
 3. 此时浏览器会下载一个压缩包，请把压缩包解压并存放到不会被删除的地方。
 4. 接下来步骤与上文一致 → <a href="#NTC">Link</a> ，在最后一步，把地址改为`你解压的文件夹链接\index.html`再点击save，此时重新打开浏览器即可检验是否设置成功

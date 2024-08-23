@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- #region - Markdown -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         .markdown-body {
@@ -31,9 +33,12 @@
 
         .markdown-body img {
             display: block;
-            margin: 20px auto; /* 居中显示 */
-            max-width: 100%; /* 防止图片超出容器 */
-            height: auto; /* 保持图片比例 */
+            margin: 20px auto;
+            /* 居中显示 */
+            max-width: 100%;
+            /* 防止图片超出容器 */
+            height: auto;
+            /* 保持图片比例 */
         }
 
         /* 可选：调整图片大小 */
@@ -53,11 +58,11 @@
 
     <!-- #region - 图片预览库lightGallery -->
     <!-- 引入 lightGallery CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.min.css">
 
-<!-- 引入 lightGallery JS -->
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
-<!-- #endregion -->
+    <!-- 引入 lightGallery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
+    <!-- #endregion -->
 </head>
 
 <body>
@@ -108,61 +113,71 @@
 
             <div class="tab-content" id="校园地图" style="display: none;">
                 <p style="text-align: center;">/***鼠标左键点击放大，摁住右键可拖拽，再次左键点击还原***/</p>
-
-
-    <!-- 默认内容 -->
-    <div id="map-wrapper" class="map-wrapper">
-        <div class="map-container">
-            <h1>佛山校区地图</h1>
-            <img src="contents/image/sanshui.jpg" alt="Map" class="map-image">
-        </div>
-        <div class="map-container">
-            <h1>广州校区地图</h1>
-            <img src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image">
-        </div>
-    </div>
-
-    <!-- 触摸端内容 -->
-    <div id="container-map" class="container-map">
-        <div class="map-cell">
-            <div class="map-title">佛山校区</div>
-            <img src="contents/image/sanshui.jpg" class="clickable-img" alt="佛山校区地图">
-        </div>
-        <div class="map-cell">
-            <div class="map-title">广州校区</div>
-            <img src="contents/image/guangzhou.jpg" class="clickable-img" alt="广州校区地图">
-        </div>
-    </div>
-    <script>
-        function isTouchDevice() {
-            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (isTouchDevice()) {
-                document.getElementById('map-wrapper').style.display = 'none';
-                document.getElementById('container-map').style.display = 'block';
-            } else {
-                document.getElementById('map-wrapper').style.display = 'block';
-                document.getElementById('container-map').style.display = 'none';
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-    if (isTouchDevice()) {
-        document.getElementById('map-wrapper').style.display = 'none';
-        document.getElementById('container-map').style.display = 'flex'; /* 使用 flex 显示容器 */
-    } else {
-        document.getElementById('map-wrapper').style.display = 'flex'; /* 使用 flex 显示容器 */
-        document.getElementById('container-map').style.display = 'none';
-    }
-});
-
-    </script>
-                
+            
+                <!-- 默认内容 -->
+                <div id="map-wrapper" class="map-wrapper">
+                    <div class="map-container">
+                        <h1>佛山校区地图</h1>
+                        <img data-src="contents/image/sanshui.jpg" alt="Map" class="map-image lazyload">
+                    </div>
+                    <div class="map-container">
+                        <h1>广州校区地图</h1>
+                        <img data-src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image lazyload">
+                    </div>
+                </div>
+            
+                <!-- 触摸端内容 -->
+                <div id="container-map" class="container-map">
+                    <div class="map-cell">
+                        <div class="map-title">佛山校区</div>
+                        <img data-src="contents/image/sanshui.jpg" class="clickable-img lazyload" alt="佛山校区地图">
+                    </div>
+                    <div class="map-cell">
+                        <div class="map-title">广州校区</div>
+                        <img data-src="contents/image/guangzhou.jpg" class="clickable-img lazyload" alt="广州校区地图">
+                    </div>
+                </div>
+            
+                <script>
+                    function isTouchDevice() {
+                        return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                    }
+            
+                    document.addEventListener('DOMContentLoaded', () => {
+                        if (isTouchDevice()) {
+                            document.getElementById('map-wrapper').style.display = 'none';
+                            document.getElementById('container-map').style.display = 'flex'; /* 使用 flex 显示容器 */
+                        } else {
+                            document.getElementById('map-wrapper').style.display = 'flex'; /* 使用 flex 显示容器 */
+                            document.getElementById('container-map').style.display = 'none';
+                        }
+            
+                        // Lazyload implementation
+                        const lazyImages = document.querySelectorAll('.lazyload');
+            
+                        const imageObserver = new IntersectionObserver((entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const img = entry.target;
+                                    img.src = img.getAttribute('data-src');
+                                    img.removeAttribute('data-src');
+                                    img.classList.remove('lazyload');
+                                    observer.unobserve(img);
+                                }
+                            });
+                        });
+            
+                        lazyImages.forEach(image => {
+                            imageObserver.observe(image);
+                        });
+                    });
+                </script>
+            
                 <h3 style="text-align: center; margin-top: 30px;">图片取自公众号：<strong>小财e课表</strong>
                     并修改，侵权请联系Makiiiiiiiho@gmail.com删除</h3>
             </div>
+            
+
 
             <div class="tab-content" id="公告" style="display: none;">
                 <iframe src="README.md"></iframe>
@@ -186,16 +201,17 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">小程序</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <p>趣智校园：洗澡用</p>
-                            <p>财大e卡：<u>广财人的电子身份证</u>，出入校园、充值校园卡、热水费电费等</p>
-                            <p>小速校园：看课表看成绩很方便</p>
-                            <p>车来了精准实时公交：踩点出门神器</p>
-                            <p>广佛通X佛山乘车码：坐公交扫码用</p>
-                            <p>端州区楷婕小食店 | 小食店：第三饭堂沙县小吃小程序，可预订且95折</p>
-                            <p>红昇超市 | 南沙：二饭小卖部外卖</p>
-                            <p></p>
+                            <p><strong>趣智校园</strong>：洗澡用</p>
+                            <p><strong>财大e卡</strong>：<u>广财人的电子身份证</u>，出入校园、充值校园卡、热水费电费等</p>
+                            <p><strong>小速校园</strong>：看课表看成绩很方便</p>
+                            <p><strong>车来了精准实时公交</strong>：踩点出门神器</p>
+                            <p><strong>广佛通X佛山乘车码</strong>：坐公交扫码用</p>
+                            <p><strong>端州区楷婕小食店 | 小食店</strong>：第三饭堂沙县小吃小程序，可预订且95折</p>
+                            <p><strong>红昇超市 | 南沙</strong>：二饭小卖部外卖</p>
+                            <p><strong>趣选书</strong>：每学期选课后，可登录购买课程用书</p>
                         </div>
                     </div>
+
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">✨✨第二课堂是什么？</h3>
                         <div class="collapsible-content" style="display: none;">
@@ -214,56 +230,70 @@
                         </div>
                     </div>
                     <div class="collapsible-section">
-                        <h3 class="collapsible-header">要去校外玩，该怎么坐车？</h3>
+                        <h3 class="collapsible-header">水电网如何购买？办理校园卡后如何加速？</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <p>校车</p>
+                            <p>费用详情可以下载查看学校的<a
+                                    href="https://cw.gdufe.edu.cn/2024/0624/c9539a194362/page.htm"></a>教育收费公示表</a></p>
+                            <p>校园网：300元/年 1.5元/小时（加速前1.5MB/s，够用-加速后12MB/s，还是ok的；延迟测过一样）</p>
+                            <p>热水费：25元/立方</p>
+                            <h1 style="margin-top: 30px;">水电网充值方式：</h1>
+                            <p>登录小程序<strong>财大e卡</strong>，点击“卡片充值”，如下图所示：</p>
+                            <img src="contents/image/ecard.png" alt="eCard">
+                            <p>默认密码是身份证号后6位</p>
+                            <p>充值完成后，点击“生活缴费”即可看见水电网缴费。</p>
+                            <img src="contents/image/shjf.png" alt="shjf">
+                            <p>网费的“我的网络账号”是学号，水费电费绑定宿舍，热水费的账号是电话号码</p>
+                            <h2>注意：</h2>
+                            <p>水费是绑定电话号码的，换手机号要去一卡通咨询，不然钱就没了</p>
+                            <p>电费如果欠费了没得商量，直接断电...上小程序缴费大概三四分钟后就来电了。<br />不过如果十一点后没电断电了，大家校园卡又没充钱：完蛋</p>
                         </div>
                     </div>
 
                     <div class="collapsible-section">
-                        <h3 class="collapsible-header">选课注意事项</h3>
-                        <div class="collapsible-content" style="display: none;">
-                            <p>校车</p>
-                        </div>
+                        <h3 class="collapsible-header">如果有补充的，或信息有误/需要更新，欢迎去<a
+                                href="https://github.com/MakiWinster/gdufeHomePage">仓库</a>提Issue或者联系<a
+                                href="mailto:Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a>！
                     </div>
+                </div>
 
-                    <div class="collapsible-section">
-                        <h3 class="collapsible-header">要去校外玩，该怎么坐车？</h3>
-                        <div class="collapsible-content" style="display: none;">
-                            <p>校车</p>
-                        </div>
-                    </div>
 
-                    
-                </div>
-            </div>
-            <div class="tab-content" id="建议" style="display: none;">
-                <p>最好去Github提Issue，顺便给我点个Star⭐吧🥰</p>
-                <p>可以把建议发送到Makiiiiiiiho@gmail.com噢</p>
-                
-                <h2 style="margin-top: 30px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
-                <div style="text-align: center;">
-                    <button id="showImagesButton" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
-                </div>
-                <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
-                    <div class="container2" style="text-align: center;">
-                        <div class="item">
-                            <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
-                        </div>
-                        <div class="item">
-                            <img src="contents/image/AliPay.png"magt="AliPay" class="clickable-img">
-                        </div>
-                    </div>
-                </div>
-                
-                <script>
-                document.getElementById('showImagesButton').addEventListener('click', function() {
-                    document.getElementById('imageContainer').style.display = 'block';
-                });
-                </script>
-                
+
             </div>
         </div>
+        <div class="tab-content" id="建议" style="display: none;">
+            <h1>提建议、Bug反馈</h1>
+            <p>欢迎在<a href="https://github.com/MakiWinster/gdufeHomePage">GitHub</a>提Issue，顺便给我点个Star⭐吧🥰</p>
+            <p>也可以把建议发送到<a mailto="Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a>噢</p>
+            <h1>联系我</h1>
+            <!-- <p>个人博客：<a href="https://makis-life.cn" target="_blank">https://makis-life.cn</a></p> -->
+
+            <p>邮箱：<a href="mailto:Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a></p>
+            <p>Discord（新频道）：<a href="https://discord.gg/ZQ67K77usH">https://discord.gg/ZQ67K77usH</a></p>
+
+            <h2 style="margin-top: 80px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
+            <div style="text-align: center;">
+                <button id="showImagesButton"
+                    style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
+            </div>
+            <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
+                <div class="container2" style="text-align: center;">
+                    <div class="item">
+                        <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
+                    </div>
+                    <div class="item">
+                        <img src="contents/image/AliPay.png" magt="AliPay" class="clickable-img">
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('showImagesButton').addEventListener('click', function () {
+                    document.getElementById('imageContainer').style.display = 'block';
+                });
+            </script>
+
+        </div>
+    </div>
     </div>
 
 
@@ -299,6 +329,10 @@
     </script>
     <!-- #endregion -->
 </body>
+<footer style="width: 100%; text-align: center; margin-top: 20px;">
+    <hr style="border: none; height: 1px; background-color: #ccc;">
+    <p style="margin: 10px 0; font-size: 14px;">© Maki Winster 2024</p>
+</footer>
 
 <!-- #region-markdown -->
 <script>
@@ -361,9 +395,9 @@
         var width = element.parent().width();
         var height = element.outerHeight(); // 获取元素高度
 
-        $(slideSelector).css({ 
-            opacity: 1, 
-            left: +position.left, 
+        $(slideSelector).css({
+            opacity: 1,
+            left: +position.left,
             width: width,
             height: height // 动态调整高度
         });
@@ -390,20 +424,20 @@
 <!-- #endregion -->
 <!-- #region-可放大照片 -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    lightGallery(document.querySelector('.container'), {
-        selector: '.clickable-img',
-        zoom: true,          // 启用缩放功能
-        download: false,     // 禁用下载按钮
-        controls: false,     // 禁用左右切换按钮
-        escKey: true,        // 允许通过Esc键关闭图片
-        keyPress: false,     // 禁用键盘左右箭头切换图片
-        slideEndAnimation: false,  // 禁用图片切换动画
-        enableSwipe: false,  // 禁用触摸滑动切换功能
-        enableDrag: false,   // 禁用拖动切换功能
-        toolbar: false       // 禁用工具栏
+    document.addEventListener('DOMContentLoaded', function () {
+        lightGallery(document.querySelector('.container'), {
+            selector: '.clickable-img',
+            zoom: true,          // 启用缩放功能
+            download: false,     // 禁用下载按钮
+            controls: false,     // 禁用左右切换按钮
+            escKey: true,        // 允许通过Esc键关闭图片
+            keyPress: false,     // 禁用键盘左右箭头切换图片
+            slideEndAnimation: false,  // 禁用图片切换动画
+            enableSwipe: false,  // 禁用触摸滑动切换功能
+            enableDrag: false,   // 禁用拖动切换功能
+            toolbar: false       // 禁用工具栏
+        });
     });
-});
 
 
 
@@ -447,4 +481,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEnterKeyListener('baidu-search', searchBaidu);
 </script>
 <!-- #endregion -->
+
 </html>

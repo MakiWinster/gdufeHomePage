@@ -3,14 +3,14 @@
     <style>
         /* 全局样式 */
         body {
-            font-family: 'pixel', sans-serif;
+            font-family: 'zhengwen';
             display: flex;
             justify-content: center;
             align-items: flex-start;
             /* 修改为 flex-start 使内容靠上对齐 */
             margin: 0;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             height: 100vh;
             /* 让 body 高度占满整个视口 */
         }
@@ -153,22 +153,32 @@
             <div class="tooltip"></div>
         </div>
 
+
+
+        <div class="link-item" data-image="../../contents/image/library.png">
+            <a href="https://lib.gdufe.edu.cn/" target="_parent">图书馆</a>
+            <div class="tooltip"></div>
+        </div>
+
+        <div class="link-item">
+            <a href="https://fsso.cnki.net/Shibboleth.sso/Login?entityID=https://idp.gdufe.edu.cn/idp/shibboleth&target=https://fsso.cnki.net/secure/default.aspx" target="_parent">知网（校外链接(VPN)）</a>
+            <div class="tooltip"></div>
+        </div>
+
+        <div class="link-item" data-image="../../contents/image/danganguan.png">
+            <a href="https://archives.gdufe.edu.cn/" target="_parent">档案馆</a>
+            <div class="tooltip"></div>
+        </div>
+
+        <div class="link-item" data-image="../../contents/image/xsg-online.png">
+            <a href="https://gcxsg.gdufe.edu.cn/" target="_parent">校史馆</a>
+            <div class="tooltip"></div>
+        </div>
+
         <div class="link-item">
             <a href="https://www.chsi.com.cn/index.jsp" target="_parent">学信网</a>
         </div>
 
-        <div class="link-item">
-            <a href="https://example.com" target="_parent">第六链接</a>
-        </div>
-        <div class="link-item">
-            <a href="https://example.com" target="_parent">第七链接</a>
-        </div>
-        <div class="link-item">
-            <a href="https://example.com" target="_parent">第八链接</a>
-        </div>
-        <div class="link-item">
-            <a href="https://example.com" target="_parent">第九链接</a>
-        </div>
         <!-- 鼠标旁边显示图片的动画 -->
         <script>
             document.querySelectorAll('.link-item').forEach(item => {
