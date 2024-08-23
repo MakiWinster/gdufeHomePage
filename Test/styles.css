@@ -6,6 +6,24 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* region Markdown的图片 */
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%; /* 防止超出容器宽度 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+.image-container img {
+    max-width: 80%; /* 调整图片宽度为容器宽度的百分比 */
+    height: auto; /* 保持图片的比例 */
+    margin-bottom: 10px; /* 图片之间的间距 */
+}
+/* #endregion */
+
 .loading-spinner {
     position: fixed;
     top: 0;
