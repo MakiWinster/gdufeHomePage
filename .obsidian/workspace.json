@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "subpages/Article/校巴.md",
+                "file": "subpages/Article/tice.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "subpages/Article/校巴.md",
+                "file": "subpages/Article/tice.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "subpages/Article/校巴.md",
+                "file": "subpages/Article/tice.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "subpages/Article/校巴.md"
+                "file": "subpages/Article/tice.md"
               }
             }
           }
@@ -148,9 +148,9 @@
   },
   "active": "5be24f3fc3cde517",
   "lastOpenFiles": [
+    "subpages/Article/校巴.md",
     "contents/Files/广东财经大学教育收费公示表(2024).pdf",
     "subpages/Article/tice.md",
-    "subpages/Article/校巴.md",
     "subpages/Article/gzh.md",
     "contents/image/gcqn.bak.jpg",
     "contents/image/gcqn (Small).jpg",
