@@ -19,71 +19,69 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+        /* Markdown 样式 */
+        .markdown-body {
+            font-family: 'zhengwen';
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 40px;
+        }
 
+        /* 图片样式 */
+        .markdown-body img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
 
-/* Markdown 样式 */
-.markdown-body {
-    font-family: 'zhengwen';
-    box-sizing: border-box;
-    min-width: 200px;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 45px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    margin-bottom: 40px;
-}
+        /* 图片大小类 */
+        .markdown-body img.small {
+            max-width: 50%;
+        }
 
-/* 图片样式 */
-.markdown-body img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-}
+        .markdown-body img.medium {
+            max-width: 75%;
+        }
 
-/* 图片大小类 */
-.markdown-body img.small {
-    max-width: 50%;
-}
+        .markdown-body img.large {
+            max-width: 100%;
+        }
 
-.markdown-body img.medium {
-    max-width: 75%;
-}
+        /* 点击效果 */
+        .markdown-body img.clickable-img {
+            cursor: pointer;
+        }
 
-.markdown-body img.large {
-    max-width: 100%;
-}
+        /* 响应式调整 */
+        @media (max-width: 600px) {
 
-/* 点击效果 */
-.markdown-body img.clickable-img {
-    cursor: pointer;
-}
+            div.markdown-body {
+                padding: 5px;
+                /* 在屏幕宽度较小时调整 padding */
+            }
 
-/* 响应式调整 */
-@media (max-width: 600px) {
+            .markdown-body img.small {
+                max-width: 60%;
+                /* 在手机上稍微增大 */
+            }
 
-    div.markdown-body {
-        padding: 5px; /* 在屏幕宽度较小时调整 padding */
-    }
+            .markdown-body img.medium {
+                max-width: 85%;
+                /* 在手机上稍微增大 */
+            }
 
-    .markdown-body img.small {
-        max-width: 60%; /* 在手机上稍微增大 */
-    }
-
-    .markdown-body img.medium {
-        max-width: 85%; /* 在手机上稍微增大 */
-    }
-
-    .markdown-body img.large {
-        max-width: 100%; /* 保持全宽 */
-    }
-}
-
-
-
-
+            .markdown-body img.large {
+                max-width: 100%;
+                /* 保持全宽 */
+            }
+        }
     </style>
     <!-- #endregion -->
 
@@ -144,7 +142,7 @@
             </div>
             <div class="tab-content" id="校园地图" style="display: none;">
                 <p style="text-align: center;">/***鼠标左键点击放大，摁住右键可拖拽，再次左键点击还原***/</p>
-            
+
                 <!-- 默认内容 -->
                 <div id="map-wrapper" class="map-wrapper">
                     <div class="map-container">
@@ -156,7 +154,7 @@
                         <img src="contents/image/guangzhou.jpg" alt="Mapguangzhou" class="map-image">
                     </div>
                 </div>
-            
+
                 <!-- 触摸端内容 -->
                 <div id="container-map" class="container-map">
                     <div class="map-cell">
@@ -168,12 +166,12 @@
                         <img src="contents/image/guangzhou.jpg" class="clickable-img" alt="广州校区地图">
                     </div>
                 </div>
-            
+
                 <script>
                     function isTouchDevice() {
                         return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                     }
-            
+
                     document.addEventListener('DOMContentLoaded', () => {
                         if (isTouchDevice()) {
                             document.getElementById('map-wrapper').style.display = 'none';
@@ -182,10 +180,10 @@
                             document.getElementById('map-wrapper').style.display = 'flex'; /* 使用 flex 显示容器 */
                             document.getElementById('container-map').style.display = 'none';
                         }
-            
+
                         // Lazyload implementation
                         const lazyImages = document.querySelectorAll('.lazyload');
-            
+
                         const imageObserver = new IntersectionObserver((entries, observer) => {
                             entries.forEach(entry => {
                                 if (entry.isIntersecting) {
@@ -197,13 +195,13 @@
                                 }
                             });
                         });
-            
+
                         lazyImages.forEach(image => {
                             imageObserver.observe(image);
                         });
                     });
                 </script>
-            
+
                 <h3 style="text-align: center; margin-top: 30px;">图片取自公众号：<strong>小财e课表</strong>
                     并修改，侵权请联系Makiiiiiiiho@gmail.com删除</h3>
             </div>
@@ -261,7 +259,8 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">水电网如何购买？办理校园卡后如何加速？</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <p>费用详情可以下载查看学校的<a href="https://cw.gdufe.edu.cn/2024/0624/c9539a194362/page.htm" target="_blank">教育收费公示表</a></p>
+                            <p>费用详情可以下载查看学校的<a href="https://cw.gdufe.edu.cn/2024/0624/c9539a194362/page.htm"
+                                    target="_blank">教育收费公示表</a></p>
                             <p>校园网：300元/年 1.5元/小时（加速前1.5MB/s，够用；加速后12MB/s，还是ok的；延迟测过一样）</p>
                             <p>热水费：25元/立方</p>
                             <h1 style="margin-top: 30px;">水电网充值方式：</h1>
@@ -283,7 +282,9 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">体测</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <center><h2>没人疼？没关系！测完体测全身疼~</h2></center>
+                            <center>
+                                <h2>没人疼？没关系！测完体测全身疼~</h2>
+                            </center>
                             <iframe src="subpages/Article/tice.md"></iframe>
                         </div>
                     </div>
@@ -299,75 +300,107 @@
 
             </div>
             <div class="tab-content" id="电子图书馆" style="display: none;">
-                <p style="text-align: center;">仅可简单用于简单查阅（请不要点击登录），如需登录请点击前往<a href="https://lib.gdufe.edu.cn/space/index">电子图书馆</a>页面。</p>
+                <p style="text-align: center;">仅可简单用于简单查阅（请不要点击登录），如需登录请点击前往<a
+                        href="https://lib.gdufe.edu.cn/space/index">电子图书馆</a>页面。</p>
+                <div class="iframe-container">
                 <iframe 
-                style="width: 100%; height: 100vh; border: none; display: block;" 
-                src="https://lib.gdufe.edu.cn/space/index"
-                id="desktop-iframe"
-            ></iframe>
-            <iframe 
-                style="width: 100%; height: 100vh; border: none; display: none;" 
-                src="https://lib.gdufe.edu.cn/mspace/index"
-                id="mobile-iframe"
-            ></iframe>
-        
-            <script>
-                function updateIframes() {
-                    const desktopIframe = document.getElementById('desktop-iframe');
-                    const mobileIframe = document.getElementById('mobile-iframe');
-                    
-                    if (window.innerWidth >= 768) {
-                        desktopIframe.style.display = 'block';
-                        mobileIframe.style.display = 'none';
-                    } else {
-                        desktopIframe.style.display = 'none';
-                        mobileIframe.style.display = 'block';
-                    }
-                }
-        
-                // Update iframe display on page load
-                updateIframes();
-                // Update iframe display on window resize
-                window.addEventListener('resize', updateIframes);
-            </script>
-            </div>
-            <div class="tab-content" id="建议" style="display: none;">
-                <h1>提建议、Bug反馈</h1>
-                <p>欢迎在<a href="https://github.com/MakiWinster/gdufeHomePage">GitHub</a>提Issue，顺便给我点个Star⭐吧🥰</p>
-                <p>也可以把建议发送到<a mailto="Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a>噢</p>
-                <h1>联系我</h1>
-                <!-- <p>个人博客：<a href="https://makis-life.cn" target="_blank">https://makis-life.cn</a></p> -->
-    
-                <p>邮箱：<a href="mailto:Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a></p>
-                <!-- <p>Discord（新频道）：<a href="https://discord.gg/ZQ67K77usH">https://discord.gg/ZQ67K77usH</a></p> -->
-    
-                <h2 style="margin-top: 80px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
-                <div style="text-align: center;">
-                    <button id="showImagesButton"
-                        style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
+                    id="desktop-iframe"
+                    data-src="https://lib.gdufe.edu.cn/space/index"
+                    style="display: none; width: 100%; height: 100vh; border: none;"
+                ></iframe>
+
+                <iframe 
+                    id="mobile-iframe"
+                    data-src="https://lib.gdufe.edu.cn/mspace/index"
+                    style="display: none; width: 100%; height: 100vh; border: none;"
+                ></iframe>
+
                 </div>
-                <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
-                    <div class="container2" style="text-align: center;">
-                        <div class="item">
-                            <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
-                        </div>
-                        <div class="item">
-                            <img src="contents/image/AliPay.png" magt="AliPay" class="clickable-img">
+
+                <script>
+                    function updateIframes() {
+                        const desktopIframe = document.getElementById('desktop-iframe');
+                        const mobileIframe = document.getElementById('mobile-iframe');
+                        
+                        if (window.innerWidth >= 768) {
+                            desktopIframe.style.display = 'block';
+                            mobileIframe.style.display = 'none';
+                        } else {
+                            desktopIframe.style.display = 'none';
+                            mobileIframe.style.display = 'block';
+                        }
+                    }
+            
+                    function lazyLoadIframe(iframe) {
+                        if (iframe.style.display === 'none') return;
+            
+                        const src = iframe.getAttribute('data-src');
+                        if (src) {
+                            iframe.src = src;
+                            iframe.removeAttribute('data-src');
+                        }
+                    }
+            
+                    function handleIntersection(entries) {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                lazyLoadIframe(entry.target);
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }
+            
+                    const observer = new IntersectionObserver(handleIntersection, {
+                        rootMargin: '0px',
+                        threshold: 0.1
+                    });
+            
+                    function init() {
+                        updateIframes();
+                        const iframes = document.querySelectorAll('iframe');
+                        iframes.forEach(iframe => observer.observe(iframe));
+                        window.addEventListener('resize', updateIframes);
+                    }
+            
+                    init();
+                </script>
+                <div class="tab-content" id="建议" style="display: none;">
+                    <h1>提建议、Bug反馈</h1>
+                    <p>欢迎在<a href="https://github.com/MakiWinster/gdufeHomePage">GitHub</a>提Issue，顺便给我点个Star⭐吧🥰</p>
+                    <p>也可以把建议发送到<a mailto="Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a>噢</p>
+                    <h1>联系我</h1>
+                    <!-- <p>个人博客：<a href="https://makis-life.cn" target="_blank">https://makis-life.cn</a></p> -->
+
+                    <p>邮箱：<a href="mailto:Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a></p>
+                    <!-- <p>Discord（新频道）：<a href="https://discord.gg/ZQ67K77usH">https://discord.gg/ZQ67K77usH</a></p> -->
+
+                    <h2 style="margin-top: 80px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
+                    <div style="text-align: center;">
+                        <button id="showImagesButton"
+                            style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
+                    </div>
+                    <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
+                        <div class="container2" style="text-align: center;">
+                            <div class="item">
+                                <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
+                            </div>
+                            <div class="item">
+                                <img src="contents/image/AliPay.png" magt="AliPay" class="clickable-img">
+                            </div>
                         </div>
                     </div>
+
+                    <script>
+                        document.getElementById('showImagesButton').addEventListener('click', function () {
+                            document.getElementById('imageContainer').style.display = 'block';
+                        });
+                    </script>
+
                 </div>
-    
-                <script>
-                    document.getElementById('showImagesButton').addEventListener('click', function () {
-                        document.getElementById('imageContainer').style.display = 'block';
-                    });
-                </script>
-    
+
             </div>
 
         </div>
-
-    </div>
     </div>
 
 
