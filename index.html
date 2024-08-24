@@ -23,6 +23,7 @@
 
 /* Markdown 样式 */
 .markdown-body {
+    font-family: 'zhengwen';
     box-sizing: border-box;
     min-width: 200px;
     max-width: 980px;
@@ -62,7 +63,8 @@
 
 /* 响应式调整 */
 @media (max-width: 600px) {
-    article.markdown-body {
+
+    div.markdown-body {
         padding: 5px; /* 在屏幕宽度较小时调整 padding */
     }
 
@@ -147,7 +149,7 @@
                 <div id="map-wrapper" class="map-wrapper">
                     <div class="map-container">
                         <h1>佛山校区地图</h1>
-                        <img data-src="contents/image/sanshui.jpg" alt="Map" class="map-image lazyload">
+                        <img data-src="contents/image/sanshui.png" alt="Map" class="map-image lazyload">
                     </div>
                     <div class="map-container">
                         <h1>广州校区地图</h1>
@@ -215,16 +217,10 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">常用要关注的公众号</h3>
                         <div class="collapsible-content" style="display: none;"> <!-- 默认隐藏内容 -->
-                            <p>1. 广东财经大学：官方号，支持一下哈哈哈 </p>
-                            <p>2. 广东财经大学财务处：用于手机端交学费、学分费、住宿费等费用</p>
-                            <p>3. 广东财经大学校园卡：用于接收有关校园卡使用的通知，宿舍电费水费欠费通知等</p>
-                            <p>4. 广东财经大学校园网：接收断网通知🤣</p>
-                            <p>5. ⭐广财青年：第二课堂的入口（校园网 / VPN）</p>
-                            <p>6. ⭐广财慕课：接收相关学习任务</p>
-                            <p>7. 雨课堂：好像也是广财慕课的</p>
-                            <p>8. 广财大心理咨询中心：建议都关注一下~</p>
+                            <iframe src="subpages/Article/gzh.md"></iframe>
                         </div>
                     </div>
+
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">小程序</h3>
                         <div class="collapsible-content" style="display: none;">
@@ -256,12 +252,20 @@
                             <a href="contents/Files/安卓、苹果（ios）、MacOS.pdf">2. 安卓、苹果手机、苹果电脑</a>
                         </div>
                     </div>
+
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">购买校巴（两校区校内直达、天河城-三水校内）</h3>
+                        <div class="collapsible-content" style="display: none;">
+
+                        </div>
+                    </div>
+
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">水电网如何购买？办理校园卡后如何加速？</h3>
                         <div class="collapsible-content" style="display: none;">
                             <p>费用详情可以下载查看学校的<a
                                     href="https://cw.gdufe.edu.cn/2024/0624/c9539a194362/page.htm"></a>教育收费公示表</a></p>
-                            <p>校园网：300元/年 1.5元/小时（加速前1.5MB/s，够用-加速后12MB/s，还是ok的；延迟测过一样）</p>
+                            <p>校园网：300元/年 1.5元/小时（加速前1.5MB/s，够用；加速后12MB/s，还是ok的；延迟测过一样）</p>
                             <p>热水费：25元/立方</p>
                             <h1 style="margin-top: 30px;">水电网充值方式：</h1>
                             <p>登录小程序<strong>财大e卡</strong>，点击“卡片充值”，如下图所示：</p>
@@ -269,13 +273,21 @@
                             <p>默认密码是身份证号后6位</p>
                             <p>充值完成后，点击“生活缴费”即可看见水电网缴费。</p>
                             <img src="contents/image/shjf.png" alt="shjf">
-                            <p>网费的“我的网络账号”是学号，水费电费绑定宿舍，热水费的账号是电话号码</p>
+                            <p>网费的“我的网络账号”是学号（交钱即开通），水费电费绑定宿舍，热水费的账号是电话号码</p>
                             <h2>注意：</h2>
                             <p>水费是绑定电话号码的，换手机号要去一卡通咨询，不然钱就没了</p>
                             <p>电费如果欠费了没得商量，直接断电...上小程序缴费大概三四分钟后就来电了。<br />不过如果十一点后没电断电了，大家校园卡又没充钱：完蛋</p>
                             <h1>校园网加速</h1>
-                            <p>办理了和学校合作的电话卡后，稍等两三天，登录这个网址<a href="http://100.64.1.202:8080/Self/login/">http://100.64.1.202:8080/Self/login/</a></p>
-                            <p>暑期无法连接校园网，回校后补上</p>
+                            <p>办理了和学校合作的电话卡后，稍等两三天</a></p>
+                            <iframe src="subpages/Article/xywjs.md" alt="xyw"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-section">
+                        <h3 class="collapsible-header">体测</h3>
+                        <div class="collapsible-content" style="display: none;">
+                            <center>没人疼？没关系！体测完全身都疼~</center>
+                            <iframe src="subpages/Article/tice.md"></iframe>
                         </div>
                     </div>
 
