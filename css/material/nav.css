@@ -28,7 +28,7 @@
 #nav li a {
     position: relative;
     padding: 0.75rem 0.9375rem; /* 使用rem单位 */
-    font: 500 1.5rem 'cuteTitle'; /* 默认字体大小为1.5rem */
+    font: 600 1.5rem 'zhengwen'; /* 默认字体大小为1.5rem */
     border: none;
     outline: none;
     color: rgb(28, 34, 52);
