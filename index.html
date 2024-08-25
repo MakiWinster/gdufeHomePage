@@ -303,25 +303,17 @@
                 <p style="text-align: center;">仅可简单用于简单查阅（请不要点击登录），如需登录请点击前往<a
                         href="https://lib.gdufe.edu.cn/space/index">电子图书馆</a>页面。</p>
                 <div class="iframe-container">
-                <iframe 
-                    id="desktop-iframe"
-                    data-src="https://lib.gdufe.edu.cn/space/index"
-                    style="display: none; width: 100%; height: 100vh; border: none;"
-                ></iframe>
+                    <iframe id="desktop-iframe" data-src="https://lib.gdufe.edu.cn/space/index"
+                        style="display: none; width: 100%; height: 100vh; border: none;"></iframe>
 
-                <iframe 
-                    id="mobile-iframe"
-                    data-src="https://lib.gdufe.edu.cn/mspace/index"
-                    style="display: none; width: 100%; height: 100vh; border: none;"
-                ></iframe>
-
+                    <iframe id="mobile-iframe" data-src="https://lib.gdufe.edu.cn/mspace/index"
+                        style="display: none; width: 100%; height: 100vh; border: none;"></iframe>
                 </div>
-
                 <script>
                     function updateIframes() {
                         const desktopIframe = document.getElementById('desktop-iframe');
                         const mobileIframe = document.getElementById('mobile-iframe');
-                        
+
                         if (window.innerWidth >= 768) {
                             desktopIframe.style.display = 'block';
                             mobileIframe.style.display = 'none';
@@ -330,17 +322,17 @@
                             mobileIframe.style.display = 'block';
                         }
                     }
-            
+
                     function lazyLoadIframe(iframe) {
                         if (iframe.style.display === 'none') return;
-            
+
                         const src = iframe.getAttribute('data-src');
                         if (src) {
                             iframe.src = src;
                             iframe.removeAttribute('data-src');
                         }
                     }
-            
+
                     function handleIntersection(entries) {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
@@ -349,54 +341,55 @@
                             }
                         });
                     }
-            
+
                     const observer = new IntersectionObserver(handleIntersection, {
                         rootMargin: '0px',
                         threshold: 0.1
                     });
-            
+
                     function init() {
                         updateIframes();
                         const iframes = document.querySelectorAll('iframe');
                         iframes.forEach(iframe => observer.observe(iframe));
                         window.addEventListener('resize', updateIframes);
                     }
-            
+
                     init();
                 </script>
-                <div class="tab-content" id="建议" style="display: none;">
-                    <h1>提建议、Bug反馈</h1>
-                    <p>欢迎在<a href="https://github.com/MakiWinster/gdufeHomePage">GitHub</a>提Issue，顺便给我点个Star⭐吧🥰</p>
-                    <p>也可以把建议发送到<a mailto="Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a>噢</p>
-                    <h1>联系我</h1>
-                    <!-- <p>个人博客：<a href="https://makis-life.cn" target="_blank">https://makis-life.cn</a></p> -->
 
-                    <p>邮箱：<a href="mailto:Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a></p>
-                    <!-- <p>Discord（新频道）：<a href="https://discord.gg/ZQ67K77usH">https://discord.gg/ZQ67K77usH</a></p> -->
+            </div>
 
-                    <h2 style="margin-top: 80px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
-                    <div style="text-align: center;">
-                        <button id="showImagesButton"
-                            style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
-                    </div>
-                    <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
-                        <div class="container2" style="text-align: center;">
-                            <div class="item">
-                                <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
-                            </div>
-                            <div class="item">
-                                <img src="contents/image/AliPay.png" magt="AliPay" class="clickable-img">
-                            </div>
+            <div class="tab-content" id="建议" style="display: none;">
+                <h1>提建议、Bug反馈</h1>
+                <p>欢迎在<a href="https://github.com/MakiWinster/gdufeHomePage">GitHub</a>提Issue，顺便给我点个Star⭐吧🥰</p>
+                <p>也可以把建议发送到<a mailto="Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a>噢</p>
+                <h1>联系我</h1>
+                <!-- <p>个人博客：<a href="https://makis-life.cn" target="_blank">https://makis-life.cn</a></p> -->
+
+                <p>邮箱：<a href="mailto:Makiiiiiiiho@gmail.com">Makiiiiiiiho@gmail.com</a></p>
+                <!-- <p>Discord（新频道）：<a href="https://discord.gg/ZQ67K77usH">https://discord.gg/ZQ67K77usH</a></p> -->
+
+                <h2 style="margin-top: 80px; text-align: center;">有帮到你？考虑Donate一下吗~🥰</h2>
+                <div style="text-align: center;">
+                    <button id="showImagesButton"
+                        style="margin-top: 10px; padding: 10px 20px; font-size: 16px; border: none; background-color: #4CAF50; color: white; cursor: pointer; border-radius: 5px;">“好，ok，嗯嗯嗯”</button>
+                </div>
+                <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
+                    <div class="container2" style="text-align: center;">
+                        <div class="item">
+                            <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
+                        </div>
+                        <div class="item">
+                            <img src="contents/image/AliPay.png" magt="AliPay" class="clickable-img">
                         </div>
                     </div>
-
-                    <script>
-                        document.getElementById('showImagesButton').addEventListener('click', function () {
-                            document.getElementById('imageContainer').style.display = 'block';
-                        });
-                    </script>
-
                 </div>
+
+                <script>
+                    document.getElementById('showImagesButton').addEventListener('click', function () {
+                        document.getElementById('imageContainer').style.display = 'block';
+                    });
+                </script>
 
             </div>
 
