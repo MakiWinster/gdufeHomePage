@@ -27,8 +27,8 @@
 
 #nav li a {
     position: relative;
-    padding: 0.75rem 0.9375rem; /* 使用rem单位 */
-    font: 600 1.5rem 'zhengwen'; /* 默认字体大小为1.5rem */
+    padding: 0.75rem 0.9375rem;
+    font: 600 1.1rem 'zhengwenb';
     border: none;
     outline: none;
     color: rgb(28, 34, 52);
@@ -36,6 +36,32 @@
     text-decoration: none;
     z-index: 3;
 }
+
+/* 针对大屏幕设备（如桌面电脑） */
+@media (min-width: 1024px) {
+    #nav li a {
+        font-size: 1.2rem; /* 增大字体 */
+        padding: 0.7rem 1.125rem; /* 增大 padding */
+    }
+}
+
+/* 针对中等屏幕设备（如平板电脑） */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #nav li a {
+        font-size: 1.1rem; /* 保持默认字体大小 */
+        padding: 0.7rem 0.9375rem; /* 保持默认 padding */
+    }
+}
+
+/* 针对小屏幕设备（如手机） */
+@media (max-width: 767px) {
+    #nav li a {
+        font-size: 1rem; /* 缩小字体 */
+        padding: 0rem 0.65rem; /* 缩小 padding */
+    }
+}
+
+
 
 /* Default styles for slide1 and slide2 */
 .slide1,

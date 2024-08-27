@@ -41,10 +41,25 @@ body::-webkit-scrollbar {
 
 @font-face {
     font-family: 'zhengwen';
-    src: url('../contents/fonts/hpsimplifiedhans-regular.ttf') format('truetype');
+    src: url('../contents/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'zhengwenl';
+    src: url('../contents/fonts/HarmonyOS_Sans_SC_Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'zhengwenb';
+    src: url('../contents/fonts/HarmonyOS_Sans_SC_Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'BoldEng';
     src: url('../contents/fonts/taileb.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ST';
+    src: url(../contents/fonts/江西拙楷2.0.ttf) format('truetype');
 }
