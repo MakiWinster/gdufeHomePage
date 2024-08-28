@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
 
 @font-face {
     font-family: 'zhengwen';
-    src: url('../contents/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+    src: url('../contents/fonts/sample.ttf') format('truetype');
 }
 
 @font-face {
