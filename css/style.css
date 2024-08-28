@@ -1,3 +1,29 @@
+/* #region - logoTitle */
+.WebsiteTitle {
+    width: 20vw; /* 默认：图像宽度为视口宽度的80% */
+    height: auto; /* 高度自动调整以保持图像比例 */
+    max-width: 100%; /* 确保图像不会超出容器宽度 */
+  }
+  
+  /* 针对手机端的样式（最大宽度768px） */
+  @media (max-width: 768px) {
+    .WebsiteTitle {
+      width: 20vw; /* 在手机端图像宽度为视口宽度的60% */
+      max-width: 300px; /* 确保图像不会变得过大 */
+    }
+  }
+  
+  /* 针对电脑端的样式（最小宽度769px） */
+  @media (min-width: 769px) {
+    .WebsiteTitle {
+      width: 13vw; /* 在电脑端图像宽度为视口宽度的40% */
+      max-width: 500px; /* 确保图像不会变得过大 */
+    }
+  }
+  
+  /* #endregion */
+
+
 
 .body {
     margin-top: 5%;
