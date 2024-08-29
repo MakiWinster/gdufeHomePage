@@ -161,6 +161,7 @@
   },
   "active": "aeae03af5d691cdc",
   "lastOpenFiles": [
+    "contents/image/mooc.png",
     "contents/fonts/江西拙楷2.0.ttf",
     "contents/fonts/HarmonyOS_Sans_SC_Regular.ttf",
     "contents/fonts/HarmonyOS_Sans_SC_Bold.ttf",
@@ -188,7 +189,6 @@
     "error.html",
     "contents/image/resource",
     "css/link.css",
-    "subpages/_resource/links.html",
     "subpages/Article/校园VPN.md"
   ]
 }
