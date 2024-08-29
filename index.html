@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>广财启动页 Alpha 1.1.3</title>
+    <title>广财启动页 Alpha 1.2.0</title>
     <link rel="icon" href="contents/image/icon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -220,17 +220,17 @@
                             <p>热水费：25元/立方</p>
                             <h1 style="margin-top: 30px;">水电网充值方式：</h1>
                             <p>登录小程序<strong>财大e卡</strong>，点击“卡片充值”，如下图所示：</p>
-                            <img src="contents/image/ecard.png" alt="eCard">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292327397.png" alt="eCard">
                             <p>默认密码是身份证号后6位</p>
                             <p>充值完成后，点击“生活缴费”即可看见水电网缴费。</p>
-                            <img src="contents/image/shjf.png" alt="shjf">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328642.png" alt="shjf">
                             <p>网费的“我的网络账号”是学号（交钱即开通），水费电费绑定宿舍，热水费的账号是电话号码</p>
                             <h2>注意：</h2>
                             <p>水费是绑定电话号码的，换手机号要去一卡通咨询，不然钱就没了</p>
                             <p>电费如果欠费了没得商量，直接断电...上小程序缴费大概三四分钟后就来电了。<br />不过如果十一点后没电断电了，大家校园卡又没充钱：完蛋</p>
                             <h1>校园网加速</h1>
                             <p>办理了和学校合作的电话卡后，稍等两三天</a></p>
-                            <iframe src="subpages/Article/xywjs.md" alt="xyw"></iframe>
+                            <iframe data-src="subpages/Article/xywjs.md" alt="xyw"></iframe>
                         </div>
                     </div>
 
@@ -238,7 +238,7 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">⭐第二课堂是什么？</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <iframe src="subpages/Article/class2.html" frameborder="0"
+                            <iframe data-rc="subpages/Article/class2.html" frameborder="0"
                                 style="width: 100%; height: 500px; overflow-x: hidden; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;"
                                 title="class2"></iframe>
                         </div>
@@ -247,7 +247,7 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">常用要关注的公众号</h3>
                         <div class="collapsible-content" style="display: none;"> <!-- 默认隐藏内容 -->
-                            <iframe src="subpages/Article/gzh.md"></iframe>
+                            <iframe data-src="subpages/Article/gzh.md"></iframe>
                         </div>
                     </div>
 
@@ -278,7 +278,7 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">购买校巴（两校区校内直达、天河城-三水校内）</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <iframe src="subpages/Article/校巴.md"></iframe>
+                            <iframe data-src="subpages/Article/校巴.md"></iframe>
                         </div>
                     </div>
 
@@ -290,7 +290,7 @@
                             <center>
                                 <h2>没人疼？没关系！测完体测全身疼~</h2>
                             </center>
-                            <iframe src="subpages/Article/tice.md"></iframe>
+                            <iframe data-src="subpages/Article/tice.md"></iframe>
                         </div>
                     </div>
 
@@ -381,10 +381,10 @@
                 <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
                     <div class="container2" style="text-align: center;">
                         <div class="item">
-                            <img src="contents/image/WeChatPay.png" alt="Wechatpay" class="clickable-img">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328838.png" alt="Wechatpay" class="clickable-img">
                         </div>
                         <div class="item">
-                            <img src="contents/image/AliPay.png" magt="AliPay" class="clickable-img">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328697.png" magt="AliPay" class="clickable-img">
                         </div>
                     </div>
                 </div>
@@ -403,33 +403,57 @@
 
 
     <script>
-        function renderMarkdown(file, iframe) {
-            fetch(file)
-                .then(response => response.text())
-                .then(text => {
-                    const container = document.createElement('div');
-                    container.className = 'markdown-body';
-                    container.innerHTML = marked.parse(text);
-                    iframe.replaceWith(container);
-                })
-                .catch(error => {
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'markdown-body';
-                    errorDiv.innerText = '加载失败：' + error.message;
-                    iframe.replaceWith(errorDiv);
-                });
+function renderMarkdown(file, iframe) {
+    fetch(file)
+        .then(response => response.text())
+        .then(text => {
+            const container = document.createElement('div');
+            container.className = 'markdown-body';
+            container.innerHTML = marked.parse(text);
+            iframe.parentNode.replaceChild(container, iframe);
+        })
+        .catch(error => {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'markdown-body';
+            errorDiv.innerText = '加载失败：' + error.message;
+            iframe.parentNode.replaceChild(errorDiv, iframe);
+        });
+}
+
+// 新的懒加载函数
+function lazyLoadIframe(iframe) {
+    const src = iframe.getAttribute('data-src');
+    if (src) {
+        if (src.endsWith('.md')) {
+            renderMarkdown(src, iframe);
+        } else {
+            iframe.src = src;
         }
+        iframe.removeAttribute('data-src');
+    }
+}
 
-        // 获取所有 iframe 元素
-        const iframes = document.querySelectorAll('iframe');
-
-        iframes.forEach(iframe => {
-            const src = iframe.getAttribute('src');
-            if (src && src.endsWith('.md')) {
-                // 如果是 Markdown 文件，则渲染
-                renderMarkdown(src, iframe);
+// 使用Intersection Observer实现懒加载
+function setupLazyLoading() {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                lazyLoadIframe(entry.target);
+                observer.unobserve(entry.target);
             }
         });
+    }, {
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+        observer.observe(iframe);
+    });
+}
+
+// 在DOM加载完成后初始化懒加载
+document.addEventListener('DOMContentLoaded', setupLazyLoading);
     </script>
 </body>
 <footer style="width: 100%; text-align: center; margin-top: 20px;">
@@ -437,37 +461,7 @@
     <p style="margin: 10px 0; font-size: 14px;">© Maki Winster 2024</p>
 </footer>
 
-<!-- #region-markdown -->
-<script>
-    function renderMarkdown(file, iframe) {
-        fetch(file)
-            .then(response => response.text())
-            .then(text => {
-                const container = document.createElement('div');
-                container.className = 'markdown-body';
-                container.innerHTML = marked.parse(text);
-                iframe.replaceWith(container);
-            })
-            .catch(error => {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'markdown-body';
-                errorDiv.innerText = '加载失败：' + error.message;
-                iframe.replaceWith(errorDiv);
-            });
-    }
 
-    // 获取所有 iframe 元素
-    const iframes = document.querySelectorAll('iframe');
-
-    iframes.forEach(iframe => {
-        const src = iframe.getAttribute('src');
-        if (src && src.endsWith('.md')) {
-            // 如果是 Markdown 文件，则渲染
-            renderMarkdown(src, iframe);
-        }
-    });
-</script>
-<!-- #endregion -->
 <!-- #region - 导航栏js -->
 <script>
     function openTab(evt, tabId) {
