@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>广财启动页 Alpha 1.2.0</title>
+    <title>广财启动页 Alpha 1.2.1</title>
     <link rel="icon" href="contents/image/icon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -86,9 +86,9 @@
     <div class="container">
         <div>
             <div class="header">
-                <a href="https://www.gdufe.edu.cn/main.htm" target="_blank" class="header-link">
+                <a href="https://www.gdufe.edu.cn/main.htm" target="_blank" rel="noopener" class="header-link">
                     <img src="contents/image/icon.png" alt="Logo" class="logo">
-                    <img src="contents/image/WebsiteTitle.png" class="WebsiteTitle">
+                    <img src="contents/image/WebsiteTitle.png" class="WebsiteTitle" alt="title">
                 </a>
             </div>
             <div class="search-container">
@@ -101,7 +101,7 @@
                     </button>
                 </div>
                 <div class="search-box-wrapper">
-                    <img src="https://img2.baidu.com/it/u=517720811,1019577022&fm=253&app=138&size=w931&n=0&f=PNG&fmt=auto?sec=1723741200&t=202819d77a89d767d0ad0b9b316b6c0a"
+                    <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292359525.png"
                         alt="Baidu" class="search-icon">
                     <input type="text" placeholder="搜索百度" class="search-box" id="baidu-search">
                     <button class="search-button" onclick="searchBaidu()">
@@ -195,8 +195,8 @@
             </div>
             <div class="tab-content" id="公告" style="display: none;">
                 <div style="margin: 0 auto; max-width: 960px; margin-top: 30px;">
-                <iframe src="README.md"></iframe>
-            </div>
+                    <iframe data-src="README.md"></iframe>
+                </div>
 
             </div>
             <div class="tab-content" id="新生" style="display: none;">
@@ -220,10 +220,12 @@
                             <p>热水费：25元/立方</p>
                             <h1 style="margin-top: 30px;">水电网充值方式：</h1>
                             <p>登录小程序<strong>财大e卡</strong>，点击“卡片充值”，如下图所示：</p>
-                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292327397.png" alt="eCard">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292327397.png"
+                                alt="eCard">
                             <p>默认密码是身份证号后6位</p>
                             <p>充值完成后，点击“生活缴费”即可看见水电网缴费。</p>
-                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328642.png" alt="shjf">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328642.png"
+                                alt="shjf">
                             <p>网费的“我的网络账号”是学号（交钱即开通），水费电费绑定宿舍，热水费的账号是电话号码</p>
                             <h2>注意：</h2>
                             <p>水费是绑定电话号码的，换手机号要去一卡通咨询，不然钱就没了</p>
@@ -238,7 +240,7 @@
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">⭐第二课堂是什么？</h3>
                         <div class="collapsible-content" style="display: none;">
-                            <iframe data-rc="subpages/Article/class2.html" frameborder="0"
+                            <iframe data-src="subpages/Article/class2.html" frameborder="0"
                                 style="width: 100%; height: 500px; overflow-x: hidden; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;"
                                 title="class2"></iframe>
                         </div>
@@ -246,7 +248,7 @@
 
                     <div class="collapsible-section">
                         <h3 class="collapsible-header">常用要关注的公众号</h3>
-                        <div class="collapsible-content" style="display: none;"> <!-- 默认隐藏内容 -->
+                        <div class="collapsible-content" style="display: none;">
                             <iframe data-src="subpages/Article/gzh.md"></iframe>
                         </div>
                     </div>
@@ -381,10 +383,12 @@
                 <div id="imageContainer" style="display: none; text-align: center; margin-top: 20px;">
                     <div class="container2" style="text-align: center;">
                         <div class="item">
-                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328838.png" alt="Wechatpay" class="clickable-img">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328838.png"
+                                alt="Wechatpay" class="clickable-img">
                         </div>
                         <div class="item">
-                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328697.png" magt="AliPay" class="clickable-img">
+                            <img src="https://aly-images472.oss-cn-guangzhou.aliyuncs.com/images/202408292328697.png"
+                                magt="AliPay" class="clickable-img">
                         </div>
                     </div>
                 </div>
@@ -401,60 +405,61 @@
     </div>
 
 
-
+<!-- #region - Markdown+LazyLoad -->
     <script>
-function renderMarkdown(file, iframe) {
-    fetch(file)
-        .then(response => response.text())
-        .then(text => {
-            const container = document.createElement('div');
-            container.className = 'markdown-body';
-            container.innerHTML = marked.parse(text);
-            iframe.parentNode.replaceChild(container, iframe);
-        })
-        .catch(error => {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'markdown-body';
-            errorDiv.innerText = '加载失败：' + error.message;
-            iframe.parentNode.replaceChild(errorDiv, iframe);
-        });
-}
-
-// 新的懒加载函数
-function lazyLoadIframe(iframe) {
-    const src = iframe.getAttribute('data-src');
-    if (src) {
-        if (src.endsWith('.md')) {
-            renderMarkdown(src, iframe);
-        } else {
-            iframe.src = src;
+        function renderMarkdown(file, iframe) {
+            fetch(file)
+                .then(response => response.text())
+                .then(text => {
+                    const container = document.createElement('div');
+                    container.className = 'markdown-body';
+                    container.innerHTML = marked.parse(text);
+                    iframe.parentNode.replaceChild(container, iframe);
+                })
+                .catch(error => {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'markdown-body';
+                    errorDiv.innerText = '加载失败：' + error.message;
+                    iframe.parentNode.replaceChild(errorDiv, iframe);
+                });
         }
-        iframe.removeAttribute('data-src');
-    }
-}
 
-// 使用Intersection Observer实现懒加载
-function setupLazyLoading() {
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                lazyLoadIframe(entry.target);
-                observer.unobserve(entry.target);
+        // 新的懒加载函数
+        function lazyLoadIframe(iframe) {
+            const src = iframe.getAttribute('data-src');
+            if (src) {
+                if (src.endsWith('.md')) {
+                    renderMarkdown(src, iframe);
+                } else {
+                    iframe.src = src;
+                }
+                iframe.removeAttribute('data-src');
             }
-        });
-    }, {
-        rootMargin: '0px',
-        threshold: 0.1
-    });
+        }
 
-    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
-        observer.observe(iframe);
-    });
-}
+        // 使用Intersection Observer实现懒加载
+        function setupLazyLoading() {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        lazyLoadIframe(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1
+            });
 
-// 在DOM加载完成后初始化懒加载
-document.addEventListener('DOMContentLoaded', setupLazyLoading);
+            document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+                observer.observe(iframe);
+            });
+        }
+
+        // 在DOM加载完成后初始化懒加载
+        document.addEventListener('DOMContentLoaded', setupLazyLoading);
     </script>
+    <!-- #endregion -->
 </body>
 <footer style="width: 100%; text-align: center; margin-top: 20px;">
     <hr style="border: none; height: 1px; background-color: #ccc;">
