@@ -1,0 +1,5 @@
+# 忽略 .obsidian 文件夹
+.obsidian/
+
+# 忽略 .vscode 文件夹
+.vscode/
