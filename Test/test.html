@@ -1,68 +1,53 @@
+<!-- 示例网页 -->
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markdown 渲染示例</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>Document</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .markdown-body {
-            box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 45px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            margin-bottom: 40px;
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            position: relative;
         }
+        .box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f00;
+            opacity: 0.5;
+            transform: rotate(45deg);
+            animation: rotate 2s infinite;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+}
     </style>
 </head>
 <body>
-    <h1>Markdown 渲染示例</h1>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <iframe style="height: auto; width: 100%; border: none; margin: 0; padding: 0; overflow: hidden; position: absolute; top: 0; left: 0; right: 0; bottom: 0" src="https://jxportal.gdufe.edu.cn/" frameborder="0" allowfullscreen>
 
-    <!-- 在这里引用Markdown文件 -->
-    <iframe src="../README.md" width="100%" height="400"></iframe>
-    <iframe src="README2.md" width="100%" height="400"></iframe>
-
-    <!-- 引用非 Markdown 文件的 iframe -->
-    <iframe src="non-markdown-file.html" width="100%" height="300"></iframe>
-
-    <script>
-        function renderMarkdown(file, iframe) {
-            fetch(file)
-                .then(response => response.text())
-                .then(text => {
-                    const container = document.createElement('div');
-                    container.className = 'markdown-body';
-                    container.innerHTML = marked.parse(text);
-                    iframe.replaceWith(container);
-                })
-                .catch(error => {
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'markdown-body';
-                    errorDiv.innerText = '加载失败：' + error.message;
-                    iframe.replaceWith(errorDiv);
-                });
-        }
-
-        // 获取所有 iframe 元素
-        const iframes = document.querySelectorAll('iframe');
-
-        iframes.forEach(iframe => {
-            const src = iframe.getAttribute('src');
-            if (src && src.endsWith('.md')) {
-                // 如果是 Markdown 文件，则渲染
-                renderMarkdown(src, iframe);
-            }
-        });
-    </script>
+        
+    </iframe>
 </body>
 </html>
